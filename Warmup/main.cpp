@@ -26,7 +26,7 @@ int main()
     cout << endl;
     while (freader >> leitura)
     {
-        if (leitura.find(search) < leitura.length())
+        if (leitura.find(search) <= leitura.length())
         {
             lines.push_back(leitura);
             cout << lines[lines.size() - 1] << endl;
