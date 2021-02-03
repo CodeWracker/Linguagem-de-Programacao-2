@@ -26,12 +26,12 @@ int main()
     cout << endl;
     while (freader >> leitura)
     {
-        if (leitura.find(search) != string::npos)
+        if (leitura.find(search) < leitura.length())
+        {
             lines.push_back(leitura);
+            cout << lines[lines.size() - 1] << endl;
+        }
     }
-    for (string line : lines)
-    {
-        cout << line << endl;
-    }
+
     return 0;
 }
