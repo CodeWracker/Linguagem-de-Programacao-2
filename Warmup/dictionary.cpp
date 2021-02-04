@@ -17,3 +17,14 @@ bool loadDictionary(string path, vector<string> &lines)
     lines.erase(lines.begin());
     return true;
 }
+
+vector<string> serchSubstring(const vector<string> lines, string search)
+{
+    vector<string> result;
+    for (string line : lines)
+    {
+        if (line.find(search) <= line.length())
+            result.push_back(line);
+    }
+    return result;
+}

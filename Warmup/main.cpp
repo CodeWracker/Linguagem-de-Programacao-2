@@ -18,10 +18,10 @@ int main()
     cout << "Digite a palavra a ser buscada: ";
     cin >> search;
     cout << endl;
-    for (string line : lines)
+    vector<string> substrings = serchSubstring(lines, search);
+    for (string line : substrings)
     {
-        if (line.find(search) <= line.length())
-            cout << line << endl;
+        cout << line << endl;
     }
     return 0;
 }
