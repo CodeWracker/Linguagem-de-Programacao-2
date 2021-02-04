@@ -1,9 +1,6 @@
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <string>
 
-using namespace std;
+#include "dictionary.hpp"
+
 int main()
 {
     cout << "Digite o nome do arquivo: ";
@@ -11,27 +8,15 @@ int main()
     cin >> path;
     cout << "Abrindo " << path << endl;
 
-    ifstream freader(path);
-
-    if (!freader.is_open())
+    vector<string> lines = LoadDictionary(path);
+    if (lines.size() == 0)
     {
-        cout << "Falha ao abrir o arquivo." << endl;
+        cout << "Nada pode ser encontrado";
         return 1;
     }
-    string leitura;
-    vector<string> lines;
-    string search;
-    cout << "Digite a palavra a ser buscada: ";
-    cin >> search;
-    cout << endl;
-    while (freader >> leitura)
+    for (string line : lines)
     {
-        if (leitura.find(search) <= leitura.length())
-        {
-            lines.push_back(leitura);
-            cout << lines[lines.size() - 1] << endl;
-        }
+        cout << line << endl;
     }
-
     return 0;
 }
