@@ -1,13 +1,12 @@
 #include "dictionary.hpp"
 
-vector<string> loadDictionary(string path)
+bool loadDictionary(string path, vector<string> &lines)
 {
     ifstream freader(path);
-    vector<string> lines;
     if (!freader.is_open())
     {
         cout << "Falha ao abrir o arquivo." << endl;
-        return lines;
+        return false;
     }
     string leitura;
     string search;
@@ -21,5 +20,5 @@ vector<string> loadDictionary(string path)
             lines.push_back(leitura);
         }
     }
-    return lines;
+    return true;
 }
