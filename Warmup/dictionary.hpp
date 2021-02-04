@@ -5,4 +5,4 @@
 
 using namespace std;
 
-vector<string> LoadDictionary(string path);
+vector<string> loadDictionary(string path);

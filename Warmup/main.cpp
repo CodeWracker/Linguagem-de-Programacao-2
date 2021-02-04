@@ -8,10 +8,10 @@ int main()
     cin >> path;
     cout << "Abrindo " << path << endl;
 
-    vector<string> lines = LoadDictionary(path);
+    vector<string> lines = loadDictionary(path);
     if (lines.size() == 0)
     {
-        cout << "Nada pode ser encontrado";
+        cout << "Falha ao tentar abrir";
         return 1;
     }
     for (string line : lines)

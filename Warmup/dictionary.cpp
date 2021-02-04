@@ -1,6 +1,6 @@
 #include "dictionary.hpp"
 
-vector<string> LoadDictionary(string path)
+vector<string> loadDictionary(string path)
 {
     ifstream freader(path);
     vector<string> lines;
