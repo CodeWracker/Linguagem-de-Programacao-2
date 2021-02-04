@@ -9,16 +9,11 @@ bool loadDictionary(string path, vector<string> &lines)
         return false;
     }
     string leitura;
-    string search;
-    cout << "Digite a palavra a ser buscada: ";
-    cin >> search;
-    cout << endl;
+
     while (freader >> leitura)
     {
-        if (leitura.find(search) <= leitura.length())
-        {
-            lines.push_back(leitura);
-        }
+        lines.push_back(leitura);
     }
+    lines.erase(lines.begin());
     return true;
 }

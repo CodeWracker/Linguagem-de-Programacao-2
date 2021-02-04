@@ -14,9 +14,14 @@ int main()
         cout << "Falha ao tentar abrir";
         return 1;
     }
+    string search;
+    cout << "Digite a palavra a ser buscada: ";
+    cin >> search;
+    cout << endl;
     for (string line : lines)
     {
-        cout << line << endl;
+        if (line.find(search) <= line.length())
+            cout << line << endl;
     }
     return 0;
 }
