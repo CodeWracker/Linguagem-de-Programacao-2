@@ -18,7 +18,7 @@ bool loadDictionary(string path, vector<string> &lines)
     return true;
 }
 
-vector<string> serchSubstring(const vector<string> lines, string search)
+vector<string> serchSubstring(string search, const vector<string> lines)
 {
     vector<string> result;
     for (string line : lines)

@@ -18,7 +18,7 @@ int main()
     cout << "Digite a palavra a ser buscada: ";
     cin >> search;
     cout << endl;
-    vector<string> substrings = serchSubstring(lines, search);
+    vector<string> substrings = serchSubstring(search, lines);
     for (string line : substrings)
     {
         cout << line << endl;
