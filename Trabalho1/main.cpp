@@ -12,7 +12,7 @@ int main()
         string opt;
         cout << "DICTIONARY MANIPULATOR HACK" << endl;
         cout << "Select an option:" << endl;
-        cout << "1. Open Dictiona" << endl;
+        cout << "1. Open Dictionary" << endl;
         cout << "2. Search Substrings" << endl;
         cout << "3. Remove Words Containing Substring" << endl;
         cout << "4. Show Statistics" << endl;
