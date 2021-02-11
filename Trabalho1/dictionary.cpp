@@ -1,7 +1,9 @@
 #include "dictionary.hpp"
 
-bool loadDictionary(string path, vector<string> &lines, vector<pair<string, string>> &arquivosStats)
+bool loadDictionary(string path, vector<pair<string, vector<string>>> &listaLinhas)
 {
+    vector<string> a;
+    listaLinhas.push_back(make_pair(path, a));
     ifstream freader(path);
     if (!freader.is_open())
     {
@@ -12,53 +14,57 @@ bool loadDictionary(string path, vector<string> &lines, vector<pair<string, stri
 
     while (freader >> leitura)
     {
-        lines.push_back(leitura);
+        listaLinhas[listaLinhas.size() - 1].second.push_back(leitura);
     }
-    lines.erase(lines.begin());
+    listaLinhas[listaLinhas.size() - 1].second.erase(listaLinhas[listaLinhas.size() - 1].second.begin());
     freader.close();
-    arquivosStats.push_back(make_pair(path, to_string(lines.size())));
     return true;
 }
 
-vector<string> serchSubstring(string search, const vector<string> lines)
+vector<string> searchSubstring(string search, const vector<pair<string, vector<string>>> &listaLinhas)
 {
     vector<string> result;
-    for (string line : lines)
+    for (pair<string, vector<string>> item : listaLinhas)
     {
-        if (line.find(search) <= line.length())
-            result.push_back(line);
-    }
-    return result;
-}
-bool removeSubstringLine(string path, string search, vector<string> &lines, vector<pair<string, string>> &arquivosStats)
-{
 
-    ofstream fwriter("temp.txt");
-    if (!fwriter.is_open())
-    {
-        cout << "Falha ao abrir o arquivo." << endl;
-        return false;
-    }
-    fwriter.seekp(0);
-    vector<string> temp;
-    for (string line : lines)
-    {
-        if (line.find(search) > line.length())
+        for (string line : item.second)
         {
-            fwriter << line << endl;
-            temp.push_back(line);
+            if (line.find(search) <= line.length())
+                result.push_back(line);
         }
     }
-    fwriter.close();
-    remove(path.c_str());
 
-    // rename the file
-    rename("temp.txt", path.c_str());
-    lines = temp;
-    for (int i = 0; i < arquivosStats.size(); i++)
+    return result;
+}
+bool removeSubstringLine(string search, vector<pair<string, vector<string>>> &listaLinhas)
+{
+    int i = 0;
+    for (pair<string, vector<string>> item : listaLinhas)
     {
-        if (arquivosStats[i].first == path)
-            arquivosStats[i].second = to_string(lines.size());
+        ofstream fwriter("temp.txt");
+        if (!fwriter.is_open())
+        {
+            cout << "Falha ao abrir o arquivo." << endl;
+            return false;
+        }
+        fwriter.seekp(0);
+        vector<string> temp;
+        for (string line : item.second)
+        {
+            if (line.find(search) > line.length())
+            {
+                fwriter << line << endl;
+                temp.push_back(line);
+            }
+        }
+        fwriter.close();
+        remove(item.first.c_str());
+
+        // rename the file
+        rename("temp.txt", item.first.c_str());
+        listaLinhas[i].second = temp;
+        i++;
     }
+
     return true;
 }

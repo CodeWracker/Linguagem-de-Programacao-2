@@ -3,29 +3,28 @@ using namespace std;
 
 int main()
 {
-    vector<pair<string, string>> arquivosStats;
+    vector<pair<string, vector<string>>> listaLinhas; // [{ path, [linhas]}]
 
-    string path;
-    vector<string> lines;
+    cout << "DICTIONARY MANIPULATOR HACK" << endl;
+    cout << "Select an option:" << endl;
+    cout << "1. Open Dictionary" << endl;
+    cout << "2. Search Substrings" << endl;
+    cout << "3. Remove Words Containing Substring" << endl;
+    cout << "4. Show Statistics" << endl;
+    cout << "5. Exit" << endl
+         << endl;
     while (true)
     {
+
         string opt;
-        cout << "DICTIONARY MANIPULATOR HACK" << endl;
-        cout << "Select an option:" << endl;
-        cout << "1. Open Dictionary" << endl;
-        cout << "2. Search Substrings" << endl;
-        cout << "3. Remove Words Containing Substring" << endl;
-        cout << "4. Show Statistics" << endl;
-        cout << "5. Exit" << endl
-             << endl;
         cout << "Option: ";
         cin >> opt;
         if (opt == "1")
         {
+            string path;
             cout << "Enter a dictionary file: ";
             cin >> path;
-            lines.clear();
-            if (!loadDictionary(path, lines, arquivosStats))
+            if (!loadDictionary(path, listaLinhas))
             {
                 cout << "Falha ao tentar abrir";
                 return 1;
@@ -37,7 +36,7 @@ int main()
             cout << "Enter a substring to search: ";
             string search;
             cin >> search;
-            vector<string> substrings = serchSubstring(search, lines);
+            vector<string> substrings = searchSubstring(search, listaLinhas);
             for (string line : substrings)
             {
                 cout << line << endl;
@@ -49,16 +48,17 @@ int main()
             cout << "Enter a substring to remove all occurrences: ";
             string search;
             cin >> search;
-            removeSubstringLine(path, search, lines, arquivosStats);
+            removeSubstringLine(search, listaLinhas);
             continue;
         }
         if (opt == "4")
         {
             cout << "Statistics:" << endl;
-            for (int i = 0; i < arquivosStats.size(); i++)
+            for (pair<string, vector<string>> item : listaLinhas)
             {
-                cout << arquivosStats[i].first << " -> " << arquivosStats[i].second << endl;
+                cout << item.first << " -> " << item.second.size() << endl;
             }
+
             continue;
         }
         if (opt == "5")
