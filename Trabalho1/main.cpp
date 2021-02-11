@@ -1,40 +1,51 @@
 #include "dictionary.hpp"
 #include <functional>
-#define ndebug
+#define NDEBUG 0 // 1 - desenvolvimento | 0 - release
 
 using namespace std;
 
 int main()
 {
     vector<pair<string, vector<string>>> listaLinhas; // [{ path, [linhas]}]
-                                                      /*
-    cout
-        << "DICTIONARY MANIPULATOR HACK" << endl;
-    cout << "Select an option:" << endl;
-    cout << "1. Open Dictionary" << endl;
-    cout << "2. Search Substrings" << endl;
-    cout << "3. Remove Words Containing Substring" << endl;
-    cout << "4. Show Statistics" << endl;
-    cout << "5. Exit" << endl
-    << endl;*/
+
+    if (NDEBUG)
+        cout << "DICTIONARY MANIPULATOR HACK" << endl;
+    if (NDEBUG)
+        cout << "Select an option:" << endl;
+    if (NDEBUG)
+        cout << "1. Open Dictionary" << endl;
+    if (NDEBUG)
+        cout << "2. Search Substrings" << endl;
+    if (NDEBUG)
+        cout << "3. Remove Words Containing Substring" << endl;
+    if (NDEBUG)
+        cout << "4. Show Statistics" << endl;
+    if (NDEBUG)
+        cout << "5. Exit" << endl
+             << endl;
     while (true)
     {
         string opt;
-        //cout << "Option: ";
+        if (NDEBUG)
+            cout << "Option: ";
         cin >> opt;
 
         if (opt == "1")
         {
             string path;
-            //cout << "Enter a dictionary file: ";
+            if (NDEBUG)
+                cout << "Enter a dictionary file: ";
             cin >> path;
-            loadDictionary(path, listaLinhas);
+            if (!loadDictionary(path, listaLinhas))
+                if (NDEBUG)
+                    cout << "Error, File Not Found";
 
             continue;
         }
         if (opt == "2")
         {
-            //cout << "Enter a substring to search: ";
+            if (NDEBUG)
+                cout << "Enter a substring to search: ";
             string search;
             cin >> search;
             vector<string> substrings;
@@ -47,7 +58,8 @@ int main()
         }
         if (opt == "3")
         {
-            //cout << "Enter a substring to remove all occurrences: ";
+            if (NDEBUG)
+                cout << "Enter a substring to remove all occurrences: ";
             string search;
             cin >> search;
             removeSubstringLine(search, listaLinhas);
