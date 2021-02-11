@@ -49,6 +49,7 @@ bool removeSubstringLine(string search, vector<pair<string, vector<string>>> &li
         }
         fwriter.seekp(0);
         vector<string> temp;
+        fwriter << item.second.size() << endl;
         for (string line : item.second)
         {
             if (line.find(search) > line.length())
