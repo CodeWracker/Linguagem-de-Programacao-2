@@ -1,11 +1,14 @@
 #include "dictionary.hpp"
+#include <functional>
+
 using namespace std;
 
 int main()
 {
     vector<pair<string, vector<string>>> listaLinhas; // [{ path, [linhas]}]
 
-    cout << "DICTIONARY MANIPULATOR HACK" << endl;
+    cout
+        << "DICTIONARY MANIPULATOR HACK" << endl;
     cout << "Select an option:" << endl;
     cout << "1. Open Dictionary" << endl;
     cout << "2. Search Substrings" << endl;
@@ -15,10 +18,10 @@ int main()
          << endl;
     while (true)
     {
-
         string opt;
         cout << "Option: ";
         cin >> opt;
+
         if (opt == "1")
         {
             string path;
@@ -60,10 +63,8 @@ int main()
             continue;
         }
         if (opt == "5")
-        {
 
             break;
-        }
     }
     return 0;
 }
