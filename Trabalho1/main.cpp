@@ -24,10 +24,8 @@ int main()
             string path;
             cout << "Enter a dictionary file: ";
             cin >> path;
-            if (!loadDictionary(path, listaLinhas))
-            {
-                cout << "Falha ao tentar abrir";
-            }
+            loadDictionary(path, listaLinhas);
+
             continue;
         }
         if (opt == "2")
