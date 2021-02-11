@@ -70,7 +70,7 @@ int main()
             cout << "Statistics:" << endl;
             for (pair<string, vector<string>> item : listaLinhas)
             {
-                cout << item.first << " -> " << item.second.size() << endl;
+                cout << item.first << " -> " << item.second.size() << " words" << endl;
             }
 
             continue;
