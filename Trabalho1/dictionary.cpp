@@ -7,7 +7,7 @@ bool loadDictionary(string path, vector<pair<string, vector<string>>> &listaLinh
     ifstream freader(path);
     if (!freader.is_open())
     {
-        cout << "Falha ao abrir o arquivo." << endl;
+        //cout << "Falha ao abrir o arquivo." << endl;
         return false;
     }
     string leitura;
@@ -44,7 +44,7 @@ bool removeSubstringLine(string search, vector<pair<string, vector<string>>> &li
         ofstream fwriter("temp.txt");
         if (!fwriter.is_open())
         {
-            cout << "Falha ao abrir o arquivo." << endl;
+            //cout << "Falha ao abrir o arquivo." << endl;
             return false;
         }
         fwriter.seekp(0);

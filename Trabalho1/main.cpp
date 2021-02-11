@@ -20,13 +20,13 @@ int main()
     while (true)
     {
         string opt;
-        cout << "Option: ";
+        //cout << "Option: ";
         cin >> opt;
 
         if (opt == "1")
         {
             string path;
-            cout << "Enter a dictionary file: ";
+            //cout << "Enter a dictionary file: ";
             cin >> path;
             loadDictionary(path, listaLinhas);
 
@@ -34,7 +34,7 @@ int main()
         }
         if (opt == "2")
         {
-            cout << "Enter a substring to search: ";
+            //cout << "Enter a substring to search: ";
             string search;
             cin >> search;
             vector<string> substrings;
@@ -47,7 +47,7 @@ int main()
         }
         if (opt == "3")
         {
-            cout << "Enter a substring to remove all occurrences: ";
+            //cout << "Enter a substring to remove all occurrences: ";
             string search;
             cin >> search;
             removeSubstringLine(search, listaLinhas);

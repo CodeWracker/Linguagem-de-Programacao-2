@@ -1,0 +1,14 @@
+Option: Enter a dictionary file: Option: Enter a dictionary file: Option: Enter a dictionary file: Option: Statistics:
+d1.txt -> 5
+d2.txt -> 3
+d3.txt -> 20
+Option: Enter a substring to search: lahlah
+lahlahlah
+lahlahbla
+zazalah
+aarauslah
+Option: Enter a substring to remove all occurrences: Option: Statistics:
+d1.txt -> 2
+d2.txt -> 2
+d3.txt -> 19
+Option: 
