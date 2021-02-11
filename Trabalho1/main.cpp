@@ -1,12 +1,13 @@
 #include "dictionary.hpp"
 #include <functional>
+#define ndebug
 
 using namespace std;
 
 int main()
 {
     vector<pair<string, vector<string>>> listaLinhas; // [{ path, [linhas]}]
-
+                                                      /*
     cout
         << "DICTIONARY MANIPULATOR HACK" << endl;
     cout << "Select an option:" << endl;
@@ -14,8 +15,8 @@ int main()
     cout << "2. Search Substrings" << endl;
     cout << "3. Remove Words Containing Substring" << endl;
     cout << "4. Show Statistics" << endl;
-    cout << "5. Exit" << endl
-         << endl;
+    cout << "5. Exit" << endl*/
+    << endl;
     while (true)
     {
         string opt;
