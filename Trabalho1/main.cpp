@@ -27,7 +27,6 @@ int main()
             if (!loadDictionary(path, listaLinhas))
             {
                 cout << "Falha ao tentar abrir";
-                return 1;
             }
             continue;
         }
