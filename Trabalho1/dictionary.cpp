@@ -21,20 +21,20 @@ bool loadDictionary(string path, vector<pair<string, vector<string>>> &listaLinh
     return true;
 }
 
-vector<string> searchSubstring(string search, const vector<pair<string, vector<string>>> &listaLinhas)
+bool searchSubstring(string search, const vector<pair<string, vector<string>>> &listaLinhas, vector<string> &substrings)
 {
-    vector<string> result;
     for (pair<string, vector<string>> item : listaLinhas)
     {
 
         for (string line : item.second)
         {
             if (line.find(search) <= line.length())
-                result.push_back(line);
+                substrings.push_back(line);
         }
     }
-
-    return result;
+    if (substrings.size() > 0)
+        return true;
+    return false;
 }
 bool removeSubstringLine(string search, vector<pair<string, vector<string>>> &listaLinhas)
 {

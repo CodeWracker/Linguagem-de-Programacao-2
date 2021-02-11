@@ -35,7 +35,8 @@ int main()
             cout << "Enter a substring to search: ";
             string search;
             cin >> search;
-            vector<string> substrings = searchSubstring(search, listaLinhas);
+            vector<string> substrings;
+            searchSubstring(search, listaLinhas, substrings);
             for (string line : substrings)
             {
                 cout << line << endl;

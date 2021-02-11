@@ -1,4 +1,3 @@
-aa
 aaa
 aaberg
 aabergs
@@ -218719,8 +218718,6 @@ palomino
 palominos
 palooka
 palookas
-palopinto
-palopintos
 palouse
 palouses
 paloverde
@@ -230288,10 +230285,6 @@ pinteresque
 pinters
 pintle
 pintles
-pinto
-pintoes
-pintos
-pintos
 pints
 pintsize
 pintsized
@@ -287109,8 +287102,6 @@ spintext
 spintexts
 spinthariscope
 spinthariscopes
-spinto
-spintos
 spinula
 spinulate
 spinule
