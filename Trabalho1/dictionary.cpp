@@ -41,13 +41,13 @@ bool removeSubstringLine(string search, vector<pair<string, vector<string>>> &li
     int i = 0;
     for (pair<string, vector<string>> item : listaLinhas)
     {
-        ofstream fwriter("temp.txt");
+        /*ofstream fwriter("temp.txt");
         if (!fwriter.is_open())
         {
             //cout << "Falha ao abrir o arquivo." << endl;
             return false;
         }
-        fwriter.seekp(0);
+        fwriter.seekp(0);*/
         vector<string> temp;
 
         for (string line : item.second)
@@ -57,16 +57,16 @@ bool removeSubstringLine(string search, vector<pair<string, vector<string>>> &li
                 temp.push_back(line);
             }
         }
-        fwriter << temp.size() << endl;
+        /* fwriter << temp.size() << endl;
         for (string line : temp)
         {
             fwriter << line << endl;
         }
-        fwriter.close();
-        remove(item.first.c_str());
+        fwriter.close();*/
+        //remove(item.first.c_str());
 
         // rename the file
-        rename("temp.txt", item.first.c_str());
+        //rename("temp.txt", item.first.c_str());
         listaLinhas[i].second = temp;
         i++;
     }
