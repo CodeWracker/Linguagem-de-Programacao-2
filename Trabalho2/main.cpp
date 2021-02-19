@@ -76,8 +76,7 @@ int main()
                     cout << "Digite o numero a ser deletado da Pessoa Fisica: ";
             cin >> t;
             if (!removeFromPF(t, listPF))
-                if (inDebug)
-                    cout << "ERRO: IMPOSSIVEL EXCLUIR, INDICE INVALIDO" << endl;
+                cout << "ERRO: IMPOSSIVEL EXCLUIR, INDICE INVALIDO" << endl;
 
             continue;
         }
@@ -86,12 +85,10 @@ int main()
         {
             string t;
             if (inDebug)
-                if (inDebug)
-                    cout << "Digite o numero a ser deletado da Pessoa Juridica: ";
+                cout << "Digite o numero a ser deletado da Pessoa Juridica: ";
             cin >> t;
             if (!removeFromPJ(t, listPJ))
-                if (inDebug)
-                    cout << "ERRO: IMPOSSIVEL EXCLUIR, INDICE INVALIDO" << endl;
+                cout << "ERRO: IMPOSSIVEL EXCLUIR, INDICE INVALIDO" << endl;
 
             continue;
         }
