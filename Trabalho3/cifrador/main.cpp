@@ -4,6 +4,9 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
+
+#define NDEBUG 0
+
 using namespace std;
 
 bool ordenaLista(const pair<size_t, size_t> &a, const pair<size_t, size_t> &b)
@@ -15,14 +18,16 @@ bool ordenaLista(const pair<size_t, size_t> &a, const pair<size_t, size_t> &b)
 int main()
 {
 
-    cout << "Enter a alphabet" << endl;
+    if (NDEBUG)
+        cout << "Enter a alphabet" << endl;
     string pathEncoding;
     cin >> pathEncoding;
 
     ifstream frEncoding(pathEncoding);
     if (!frEncoding.is_open())
     {
-        cout << "ERRO ao abrir" << endl;
+        if (NDEBUG)
+            cout << "ERRO ao abrir" << endl;
         return 1;
     }
     vector<char> alfabeto;
@@ -31,14 +36,16 @@ int main()
     {
         alfabeto.push_back(tmp[0]);
     }
-    cout << "Enter a text file to encode" << endl;
+    if (NDEBUG)
+        cout << "Enter a text file to encode" << endl;
     string pathData;
     cin >> pathData;
 
     ifstream frData(pathData);
     if (!frData.is_open())
     {
-        cout << "ERRO ao abrir" << endl;
+        if (NDEBUG)
+            cout << "ERRO ao abrir" << endl;
         return 1;
     }
     stringstream dataStr;
@@ -47,16 +54,13 @@ int main()
         dataStr << ch;
 
     vector<pair<size_t, size_t>> listaFreq(256);
-    for (size_t i; i < 256; i++)
+    for (size_t i = 0; i < 256; i++)
     {
-        listaFreq.at(i).first = i;
-        listaFreq.at(i).second = 0;
+        listaFreq[i].first = i;
+        listaFreq[i].second = 0;
     }
-    for (size_t i = 0; i < dataStr.str().size(); i++)
-    {
-        char ch = dataStr.str().at(i);
+    for (char ch : dataStr.str())
         listaFreq.at(ch).second++;
-    }
 
     stable_sort(listaFreq.begin(), listaFreq.end(), ordenaLista);
 
@@ -69,8 +73,27 @@ int main()
     }
     if (listaFreq.size() > alfabeto.size())
     {
-        cout << "ALfabeto pequeno demais" << endl;
+        if (NDEBUG)
+            cout << "ALfabeto pequeno demais" << endl;
         return 3;
+    }
+
+    for (size_t i = 0; i < listaFreq.size(); i++)
+    {
+        listaFreq[i].second = alfabeto[i];
+    }
+
+    for (char ch : dataStr.str())
+    {
+        for (pair<size_t, size_t> freq : listaFreq)
+        {
+
+            if (ch == freq.first)
+            {
+                cout << (char)freq.second;
+                break;
+            }
+        }
     }
 
     return 0;
