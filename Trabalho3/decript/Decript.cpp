@@ -22,13 +22,13 @@ bool loadFreqOrig(string path, vector<char> &alphaList)
     {
         list.push_back(tmp);
     }
-    for (string line : list)
+    /*for (string line : list)
     {
         stringstream sstream(line);
         size_t gg;
         sstream >> gg;
         cout << gg << endl;
         alphaList.push_back(gg);
-    }
+    }*/
     return true;
 }
