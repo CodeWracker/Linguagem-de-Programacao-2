@@ -40,6 +40,7 @@ int main()
     {
         cout << frequenciaOrig[i] << " -> " << (char)alfabeto[i] << endl;
     }
+
     /*if (listaFreq.size() > alfabeto.size())
     {
         if (NDEBUG)
