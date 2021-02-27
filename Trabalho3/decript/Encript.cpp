@@ -80,7 +80,7 @@ stringstream encriptMessage(const stringstream &dataStr, vector<pair<size_t, siz
     }
     return returnData;
 }
-void printEcription(const stringstream &dataStr, vector<pair<size_t, size_t>> listaFreq, const vector<char> &alphaList)
+void printEncription(const stringstream &dataStr, vector<pair<size_t, size_t>> listaFreq, const vector<char> &alphaList)
 {
     stringstream encriptedMessage;
     encriptedMessage = encriptMessage(dataStr, listaFreq, alphaList);

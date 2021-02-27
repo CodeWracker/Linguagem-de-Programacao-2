@@ -1,2 +1,3 @@
 data.txt
-orig.txt
+2
+alphas.txt

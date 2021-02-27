@@ -12,5 +12,5 @@ bool ordenaLista(const pair<size_t, size_t> &a, const pair<size_t, size_t> &b);
 bool loadAlphabet(string path, vector<char> &alphaList);
 bool loadMessage(string path, stringstream &dataStr);
 void loadFrequency(const stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq);
-void printEcription(const stringstream &, vector<pair<size_t, size_t>> listaFreq, const vector<char> &alphaList);
+void printEncription(const stringstream &, vector<pair<size_t, size_t>> listaFreq, const vector<char> &alphaList);
 stringstream encriptMessage(const stringstream &dataStr, vector<pair<size_t, size_t>> listaFreq, const vector<char> &alphaList);

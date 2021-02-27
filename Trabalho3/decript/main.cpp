@@ -16,14 +16,6 @@ int main()
     vector<char> alfabeto;
     getAlphabetFromMessage(dataStr, alfabeto, listaFreq);
 
-    if (NDEBUG)
-        cout << "Enter a alphabet" << endl;
-    string pathFreqOrig;
-    cin >> pathFreqOrig;
-
-    vector<char> frequenciaOrig;
-    if (!loadFreqOrig(pathFreqOrig, frequenciaOrig))
-        return 1;
     /*
     // descobrir o shift na mão
     for (int shift = 0; shift < 51; shift++)
@@ -42,32 +34,48 @@ int main()
         printEcription(dataStr, listaFreq, shiftedAlpha);
         cout << endl;
     }*/
-    cout << endl
-         << "shift = " << 33 << endl
-         << endl;
+    char choice;
+    cout << "1 - shift 33 // 2 - alpha por arq : ";
+    cin >> choice;
     vector<char> shiftedAlpha;
-    for (size_t i = 0; i < frequenciaOrig.size(); i++)
+    if (choice == '1')
     {
-        char ch = ((size_t)frequenciaOrig[i]) - 33;
-        cout << i << " -> " << ch << endl;
-        shiftedAlpha.push_back(ch);
+        if (NDEBUG)
+            cout << "Enter a alphabet" << endl;
+        string pathFreqOrig;
+        cin >> pathFreqOrig;
+        vector<char> frequenciaOrig;
+        if (!loadFreqOrig(pathFreqOrig, frequenciaOrig))
+            return 1;
+        cout << endl
+             << "shift = " << 33 << endl
+             << endl;
+
+        for (size_t i = 0; i < frequenciaOrig.size(); i++)
+        {
+            char ch = ((size_t)frequenciaOrig[i]) - 33;
+            cout << i << " -> " << ch << endl;
+            shiftedAlpha.push_back(ch);
+        }
+        printDecription(dataStr, listaFreq, shiftedAlpha);
     }
-    printDecription(dataStr, listaFreq, shiftedAlpha);
+    else
+    {
+        // carrega um alfabeto de um arquivo para decodificar (ou encriptar novamente)
+        if (NDEBUG)
+            cout << "Enter a alphabet" << endl;
+        string pathEncoding;
+        cin >> pathEncoding;
+
+        if (!loadAlphabet(pathEncoding, shiftedAlpha))
+            return 1;
+        printEncription(dataStr, listaFreq, shiftedAlpha);
+    }
+
     cout << endl
          << endl;
     ;
     cout << dataStr.str() << endl;
-    /* 
-    // carrega um alfabeto de um arquivo para decodificar (ou encriptar novamente)
-    if (NDEBUG)
-        cout << "Enter a alphabet" << endl;
-    string pathEncoding;
-    cin >> pathEncoding;
 
-    if (!loadAlphabet(pathEncoding, shiftedAlpha))
-        return 1;
-    printEcription(dataStr, listaFreq, shiftedAlpha);
-    cout << endl;
-*/
     return 0;
 }
