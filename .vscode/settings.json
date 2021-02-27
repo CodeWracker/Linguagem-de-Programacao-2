@@ -39,6 +39,8 @@
         "string": "cpp",
         "map": "cpp",
         "unordered_map": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "array": "cpp",
+        "string_view": "cpp"
     }
 }
