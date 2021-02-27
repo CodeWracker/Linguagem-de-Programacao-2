@@ -3,16 +3,6 @@
 int main()
 {
 
-    /*
-    if (NDEBUG)
-        cout << "Enter a alphabet" << endl;
-    string pathEncoding;
-    cin >> pathEncoding;
-    
-    
-    if (!loadAlphabet(pathEncoding, alfabeto))
-        return 1;
-    */
 
     if (NDEBUG)
         cout << "Enter a text file to decode" << endl;
