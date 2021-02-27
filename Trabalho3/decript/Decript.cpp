@@ -18,17 +18,13 @@ bool loadFreqOrig(string path, vector<char> &alphaList)
     }
 
     string tmp;
-    while (getline(frEncoding, tmp))
+    while (frEncoding >> tmp)
     {
-        list.push_back(tmp);
-    }
-    /*for (string line : list)
-    {
-        stringstream sstream(line);
-        size_t gg;
-        sstream >> gg;
+        cout << tmp << endl;
+        int ch = atoi(tmp.c_str());
+        char gg = (size_t) ch;
         cout << gg << endl;
-        alphaList.push_back(gg);
-    }*/
+    }
+    
     return true;
 }
