@@ -2,8 +2,6 @@
 #include "Decript.hpp"
 int main()
 {
-
-
     if (NDEBUG)
         cout << "Enter a text file to decode" << endl;
     string pathData;
