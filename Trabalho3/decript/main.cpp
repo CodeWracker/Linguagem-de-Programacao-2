@@ -52,8 +52,11 @@ int main()
         cout << i << " -> " << ch << endl;
         shiftedAlpha.push_back(ch);
     }
-    printEcription(dataStr, listaFreq, shiftedAlpha);
-    cout << endl;
+    printDecription(dataStr, listaFreq, shiftedAlpha);
+    cout << endl
+         << endl;
+    ;
+    cout << dataStr.str() << endl;
     /* 
     // carrega um alfabeto de um arquivo para decodificar (ou encriptar novamente)
     if (NDEBUG)

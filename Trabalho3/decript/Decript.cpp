@@ -43,7 +43,9 @@ stringstream decriptMessage(const stringstream &dataStr, vector<pair<size_t, siz
     for (size_t i = dif + 1; i < listaFreq.size(); i++)
     {
 
-        listaFreq[i].second = listaFreq[dif + cont].first;
+        //listaFreq[i].second = listaFreq[dif + cont].first;
+        listaFreq[i].second = 63;
+        cont++;
         cont++;
     }
 
