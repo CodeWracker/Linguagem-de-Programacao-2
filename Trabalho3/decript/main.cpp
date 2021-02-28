@@ -22,16 +22,18 @@ int main()
     int shift = 0;
     while (1)
     {
-        cout << "shift = " << shift << endl;
-        ;
-        cout << "Menu do quebrador de criptografia, by Rodrigo & Manoella" << endl;
-        cout << "1 - Abrir arquivo criptografado" << endl;
-        cout << "2 - Escolher um alfabeto" << endl;
-        cout << "3 - Mostrar possibilidades de shift da dica" << endl;
-        cout << "4 - Printar alfabeto para traducao" << endl;
-        cout << "5 - Decriptar" << endl;
-        cout << "6 - Mudar o alfabeto para traducao" << endl;
-        cout << "7 - Sair" << endl;
+        if (NDEBUG)
+        {
+            cout << "shift = " << shift << endl;
+            cout << "Menu do quebrador de criptografia, by Rodrigo & Manoella" << endl;
+            cout << "1 - Abrir arquivo criptografado" << endl;
+            cout << "2 - Escolher um alfabeto" << endl;
+            cout << "3 - Mostrar possibilidades de shift da dica" << endl;
+            cout << "4 - Printar alfabeto para traducao" << endl;
+            cout << "5 - Decriptar" << endl;
+            cout << "6 - Mudar o alfabeto para traducao" << endl;
+            cout << "7 - Sair" << endl;
+        }
         char esc;
         cin >> esc;
         cin.ignore();
