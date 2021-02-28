@@ -106,13 +106,13 @@ void changeShiftedAlpha(stringstream &dataStr, vector<pair<size_t, size_t>> &lis
         printShiftedALph(dataStr, listaFreq, alfabeto, frequenciaOrig, shiftedAlpha, shift);
         decrypt(dataStr, listaFreq, alfabeto, frequenciaOrig, shiftedAlpha, shift);
         string choice;
-        cout << "Digite o indice do item que deseja alterar(deixe vazio para sair)" << endl;
+        cout << endl
+             << "Digite o indice do item que deseja alterar(deixe vazio para sair)" << endl;
         getline(cin, choice);
         if (choice.size() == 0)
             break;
         int i = atoi(choice.c_str());
-        cout << endl
-             << "Digite o caractere a ser colocado no lugar" << endl;
+        cout << "Digite o caractere a ser colocado no lugar" << endl;
         getline(cin, choice);
         shiftedAlpha[i] = choice[0];
     }
@@ -145,19 +145,16 @@ int main()
         cout << "4 - Printar alfabeto para traducao" << endl;
         cout << "5 - Decriptar" << endl;
         cout << "6 - Mudar o alfabeto para traducao" << endl;
+        cout << "7 - Sair" << endl;
         char esc;
         cin >> esc;
         cin.ignore();
-        (*myMap[esc])(dataStr, listaFreq, alfabeto, frequenciaOrig, shiftedAlpha, shift);
+        if (esc == '7')
+            break;
+        else
+            (*myMap[esc])(dataStr, listaFreq, alfabeto, frequenciaOrig, shiftedAlpha, shift);
     }
 
-    /*
-   */
-
-    cout << endl
-         << endl;
-    ;
-    cout << dataStr.str() << endl;
-
+    
     return 0;
 }
