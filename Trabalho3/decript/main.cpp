@@ -3,7 +3,6 @@
 #include "choices.hpp"
 #include <stdlib.h>
 #include <map>
-
 int main()
 {
     typedef void (*funcP)(stringstream & dataStr, vector<pair<size_t, size_t>> & listaFreq, vector<char> & alfabeto, vector<char> & frequenciaOrig, vector<char> & shiftedAlpha, int &shift);
