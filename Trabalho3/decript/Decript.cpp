@@ -32,26 +32,12 @@ stringstream decriptMessage(const stringstream &dataStr, vector<pair<size_t, siz
 
     for (size_t i = 0; i < listaFreq.size(); i++)
     {
-        listaFreq[i].second = alphaList[i];
-    }
-    int dif = listaFreq.size() - alphaList.size();
-
-    cout << endl
-         << "frqSize: " << listaFreq.size() << " | alphSize: " << alphaList.size() << " | dif: " << dif << endl
-         << endl;
-    int cont = 1;
-    for (size_t i = dif + 1; i < listaFreq.size(); i++)
-    {
-
-        listaFreq[i].second = listaFreq[dif + cont].first;
-        //listaFreq[i].second = 63;
-        cont++;
+        if (alphaList[i])
+            listaFreq[i].second = alphaList[i];
+        else
+            listaFreq[i].second = listaFreq[i].first;
     }
 
-    for (pair<size_t, size_t> f : listaFreq)
-    {
-        cout << (char)f.second << endl;
-    }
     for (char ch : dataStr.str())
     {
         for (size_t i = 0; i < listaFreq.size(); i++)
