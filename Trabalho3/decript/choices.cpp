@@ -31,6 +31,10 @@ void takeAlphabet(stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq
 void showShifts(stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq, vector<char> &alfabeto, vector<char> &frequenciaOrig, vector<char> &shiftedAlpha, int &shift)
 {
     system("clear");
+    if(frequenciaOrig.size() == 0){
+        cout << "Impossivel printar, alfabeto vazio" << endl;
+        return ;
+    }
     // descobrir o shift na mão
     for (int shif = 0; shif < 51; shif++)
     {
@@ -63,34 +67,24 @@ void showShifts(stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq, 
 }
 void decrypt(stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq, vector<char> &alfabeto, vector<char> &frequenciaOrig, vector<char> &shiftedAlpha, int &shift)
 {
-    printDecription(dataStr, listaFreq, shiftedAlpha);
-    /*
-    char choice;
-    cout << "1 - shift "
-         << " // 2 - alpha por arq : ";
-    cin >> choice;
-    if (choice == '1')
-    {
-
-        printEncription(dataStr, listaFreq, shiftedAlpha);
+    if((shiftedAlpha.size() == 0) || (listaFreq.size() == 0 )|| (dataStr.str().length() == 0)){
+        cout << "Impossivel executar, informacoes insuficiente" << endl;
+        return ;
     }
-    else
-    {
-        // carrega um alfabeto de um arquivo para decodificar (ou encriptar novamente)
-        if (NDEBUG)
-            cout << "Enter a alphabet" << endl;
-        string pathEncoding;
-        cin >> pathEncoding;
 
-        if (!loadAlphabet(pathEncoding, shiftedAlpha))
-            cout << "Falha ao abrir o alfabeto";
-        printEncription(dataStr, listaFreq, shiftedAlpha);
-    }*/
+    printDecription(dataStr, listaFreq, shiftedAlpha);
+    cout << endl;
 }
 
 void printShiftedALph(stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq, vector<char> &alfabeto, vector<char> &frequenciaOrig, vector<char> &shiftedAlpha, int &shift)
 {
     system("clear");
+
+    if(shiftedAlpha.size() == 0){
+        cout << "Impossivel printar, alfabeto vazio" << endl;
+        return ;
+    }
+
     for (size_t i = 0; i < listaFreq.size(); i++)
     {
         cout << i << ": " << (char)listaFreq[i].first << " - " << (char)shiftedAlpha[i] << endl;
@@ -118,8 +112,12 @@ void changeShiftedAlpha(stringstream &dataStr, vector<pair<size_t, size_t>> &lis
 }
 
 void loadShiftedAlpha(stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq, vector<char> &alfabeto, vector<char> &frequenciaOrig, vector<char> &shiftedAlpha, int &shift){
+    system("clear");
     cout << "Digite o nome do arquivo de alfabeto: " << endl;
     string path;
     cin >> path;
+
+    shiftedAlpha.clear();
+
     loadAlphabet(path, shiftedAlpha);
 }
