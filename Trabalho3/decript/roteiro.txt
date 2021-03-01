@@ -1,0 +1,3 @@
+R: introdução - falar sobre os cabeçalhos e o uso do map
+M: mostrar a lógica e estratégia (passar pelo as opções do menu)
+R: execução do código
