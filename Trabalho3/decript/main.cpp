@@ -13,6 +13,7 @@ int main()
     myMap['4'] = printShiftedALph;
     myMap['5'] = decrypt;
     myMap['6'] = changeShiftedAlpha;
+    myMap['7'] = loadShiftedAlpha;
     stringstream dataStr;
     vector<pair<size_t, size_t>> listaFreq(256);
     vector<char> alfabeto;
@@ -31,12 +32,13 @@ int main()
             cout << "4 - Printar alfabeto para traducao" << endl;
             cout << "5 - Decriptar" << endl;
             cout << "6 - Mudar o alfabeto para traducao" << endl;
-            cout << "7 - Sair" << endl;
+            cout << "7 - Selecionar alfabeto de arquivo" << endl;
+            cout << "8 - Sair" << endl;
         }
         char esc;
         cin >> esc;
         cin.ignore();
-        if (esc == '7')
+        if (esc == '8')
             break;
         else
             (*myMap[esc])(dataStr, listaFreq, alfabeto, frequenciaOrig, shiftedAlpha, shift);

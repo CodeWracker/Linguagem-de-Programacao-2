@@ -9,3 +9,4 @@ void decrypt(stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq, vec
 
 void printShiftedALph(stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq, vector<char> &alfabeto, vector<char> &frequenciaOrig, vector<char> &shiftedAlpha, int &shift);
 void changeShiftedAlpha(stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq, vector<char> &alfabeto, vector<char> &frequenciaOrig, vector<char> &shiftedAlpha, int &shift);
+void loadShiftedAlpha(stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq, vector<char> &alfabeto, vector<char> &frequenciaOrig, vector<char> &shiftedAlpha, int &shift);

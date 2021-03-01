@@ -116,3 +116,10 @@ void changeShiftedAlpha(stringstream &dataStr, vector<pair<size_t, size_t>> &lis
         shiftedAlpha[i] = choice[0];
     }
 }
+
+void loadShiftedAlpha(stringstream &dataStr, vector<pair<size_t, size_t>> &listaFreq, vector<char> &alfabeto, vector<char> &frequenciaOrig, vector<char> &shiftedAlpha, int &shift){
+    cout << "Digite o nome do arquivo de alfabeto: " << endl;
+    string path;
+    cin >> path;
+    loadAlphabet(path, shiftedAlpha);
+}
