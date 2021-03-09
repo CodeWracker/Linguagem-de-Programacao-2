@@ -1,9 +1,18 @@
 #include "Dictionary.hpp"
+#include "Choices.hpp"
+
+#include <map>
 
 int main()
 {
+    typedef void (*funcP)(vector<Dictionary> &myDictionaries);
+    map<char, funcP> optionMap;
+    optionMap['1'] = load;
+    optionMap['2'] = searchSubstring;
+    optionMap['3'] = removeSubstring;
+    optionMap['4'] = showStats;
 
-    vector<Dictionary> myDictionaries; // [{ path, [linhas]}]
+    vector<Dictionary> myDictionaries;
 
     if (NDEBUG)
         cout << "DICTIONARY MANIPULATOR HACK" << endl;
@@ -22,71 +31,15 @@ int main()
              << endl;
     while (true)
     {
-        string opt;
+        char opt;
         if (NDEBUG)
             cout << "Option: ";
         cin >> opt;
 
-        if (opt == "1")
-        {
-            string path;
-            if (NDEBUG)
-                cout << "Enter a dictionary file: ";
-            cin >> path;
-            Dictionary myDict;
-            if (!myDict.LoadDictionary(path))
-            {
-                if (NDEBUG)
-                    cout << "Error, File Not Found";
-                continue;
-            }
-            myDictionaries.push_back(myDict);
-
-            continue;
-        }
-        if (opt == "2")
-        {
-            if (NDEBUG)
-                cout << "Enter a substring to search: ";
-            string search;
-            cin >> search;
-            vector<string> substrings;
-            for (Dictionary myDict : myDictionaries)
-            {
-                substrings = myDict.SearchSubstring(search);
-                for (string line : substrings)
-                {
-                    cout << line << endl;
-                }
-            }
-
-            continue;
-        }
-        if (opt == "3")
-        {
-            if (NDEBUG)
-                cout << "Enter a substring to remove all occurrences: ";
-            string search;
-            cin >> search;
-            for (size_t i = 0; i < myDictionaries.size(); i++)
-                if (myDictionaries.at(i).RemoveSubstringLine(search))
-                    if (NDEBUG)
-                        cout << "Removed" << endl;
-            continue;
-        }
-        if (opt == "4")
-        {
-            cout << "Statistics:" << endl;
-            for (Dictionary myDict : myDictionaries)
-            {
-                cout << myDict.GetPath() << " -> " << myDict.GetSize() << " words" << endl;
-            }
-
-            continue;
-        }
-        if (opt == "5")
-
+        if (opt == '5')
             break;
+        else
+            (*optionMap[opt])(myDictionaries);
     }
     return 0;
 }
