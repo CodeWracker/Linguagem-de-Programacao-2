@@ -41,6 +41,7 @@
         "unordered_map": "cpp",
         "algorithm": "cpp",
         "array": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "deque": "cpp"
     }
 }
