@@ -42,6 +42,8 @@
         "algorithm": "cpp",
         "array": "cpp",
         "string_view": "cpp",
-        "deque": "cpp"
-    }
+        "deque": "cpp",
+        "*.tcc": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
