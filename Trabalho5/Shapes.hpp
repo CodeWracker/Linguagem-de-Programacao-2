@@ -70,10 +70,11 @@ class Tetrahedron
 {
 private:
     Point3d m_p1, m_p2, m_p3, m_p4;
+    float m_a, m_b, m_c, m_d, m_e, m_f;
 
 public:
     Tetrahedron(){};
-    Tetrahedron(Point3d p1, Point3d p2, Point3d p3, Point3d p4) : m_p1(p1), m_p2(p2), m_p3(p3), m_p4(p4){};
+    Tetrahedron(Point3d p1, Point3d p2, Point3d p3, Point3d p4);
     float CalcArea();
 };
 class Cube
