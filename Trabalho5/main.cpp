@@ -88,6 +88,24 @@ int main()
         }
         if (aux == "tetrahedron")
         {
+            getline(arq, aux);
+            vector<string> dt = splitString(aux, ',');
+            Point3d pt1(atof(dt[0].c_str()), atof(dt[1].c_str()), atof(dt[2].c_str()));
+
+            getline(arq, aux);
+            dt = splitString(aux, ',');
+            Point3d pt2(atof(dt[0].c_str()), atof(dt[1].c_str()), atof(dt[2].c_str()));
+
+            getline(arq, aux);
+            dt = splitString(aux, ',');
+            Point3d pt3(atof(dt[0].c_str()), atof(dt[1].c_str()), atof(dt[2].c_str()));
+
+            getline(arq, aux);
+            dt = splitString(aux, ',');
+            Point3d pt4(atof(dt[0].c_str()), atof(dt[1].c_str()), atof(dt[2].c_str()));
+
+            Tetrahedron tet(pt1, pt2, pt3, pt4);
+            myEls.push_back(tet);
             continue;
         }
         if (aux == "cube")
