@@ -2,12 +2,12 @@
 #define GENERIC_HPP
 
 #include "Shapes.hpp"
-#include <iostream>
-#include <string>
 #include <sstream>
-using namespace std;
+#include <map>
+#include <iomanip>
 enum DataType
 {
+    tnone,
     tcircle,
     tsquare,
     ttriangle,
@@ -15,14 +15,16 @@ enum DataType
     ttetrahedron,
     tcube
 };
+
 class GenericElement
 {
+
 private:
     void *m_data;
     DataType m_dataType;
 
 public:
-    GenericElement(){};
+    GenericElement();
     GenericElement(Circle v);
     GenericElement(Square v);
     GenericElement(Triangle v);
@@ -34,24 +36,23 @@ public:
     string ShowInfo()
     {
         stringstream saida;
-        saida << "DataType is: " << m_dataType;
+
         if (m_dataType == tnone)
             saida << " -> "
                   << "NULL";
-        if (m_dataType == tint)
-            saida << " -> " << *((int *)m_data);
-        if (m_dataType == tfloat)
-            saida << " -> " << *((float *)m_data);
-        if (m_dataType == tdouble)
-            saida << " -> " << *((double *)m_data);
-        if (m_dataType == tchar)
-            saida << " -> " << *((char *)m_data);
-        if (m_dataType == tstring)
-            saida << " -> " << *((string *)m_data);
-        if (m_dataType == tpoint2d)
-            saida << " -> " << ((Point2d *)m_data)->m_x << " - " << ((Point2d *)m_data)->m_y;
-        if (m_dataType == tpoint3d)
-            saida << " -> " << ((Point3d *)m_data)->m_x << " - " << ((Point3d *)m_data)->m_y << " - " << ((Point3d *)m_data)->m_z;
+        if (m_dataType == tcircle)
+            saida << "circle -> " << setprecision(2) << fixed << ((Circle *)m_data)->CalcArea();
+        if (m_dataType == tsquare)
+            saida << "tquare -> " << setprecision(2) << fixed << ((Square *)m_data)->CalcArea();
+        if (m_dataType == ttriangle)
+            saida << "triangle -> " << setprecision(2) << fixed << ((Triangle *)m_data)->CalcArea();
+        if (m_dataType == tsphere)
+            saida << "sphere -> " << setprecision(2) << fixed << ((Sphere *)m_data)->CalcArea();
+        if (m_dataType == ttetrahedron)
+            saida << "tetrahedron -> " << setprecision(2) << fixed << ((Tetrahedron *)m_data)->CalcArea();
+        if (m_dataType == tcube)
+            saida << "cube -> " << setprecision(2) << fixed << ((Cube *)m_data)->CalcArea();
+
         return saida.str();
     };
 };

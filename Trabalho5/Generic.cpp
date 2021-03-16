@@ -1,4 +1,10 @@
 #include "Generic.hpp"
+#include "Shapes.hpp"
+GenericElement::GenericElement()
+{
+    m_data = NULL;
+    m_dataType = tnone;
+};
 GenericElement::GenericElement(Circle v)
 {
     m_dataType = tcircle;
