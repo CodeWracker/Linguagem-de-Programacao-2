@@ -30,3 +30,13 @@ GenericElement::GenericElement(string v)
     m_data = new string(v);
     m_dataType = tstring;
 }
+GenericElement::GenericElement(Point2d v)
+{
+    m_data = new Point2d(v);
+    m_dataType = tpoint2d;
+}
+GenericElement::GenericElement(Point3d v)
+{
+    m_data = new Point3d(v);
+    m_dataType = tpoint3d;
+}
