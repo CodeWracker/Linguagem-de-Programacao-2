@@ -1,7 +1,7 @@
 #ifndef SHAPES_HPP
 #define SHAPES_HPP
 
-#define NDEBUG 1
+#define NDEBUG 0
 
 #include <iostream>
 #include <string>
@@ -52,7 +52,7 @@ private:
 public:
     Triangle(){};
     Triangle(Point2d p1, Point2d p2, Point2d p3);
-    Triangle(float e1, float e2, float e3) : m_e1(e1), m_e2(e1), m_e3(e3){};
+    Triangle(float e1, float e2, float e3) : m_e1(e1), m_e2(e2), m_e3(e3){};
     float CalcArea();
 };
 class Sphere

@@ -26,10 +26,11 @@ vector<string> splitString(string s, char it)
 
 int main()
 {
+
     vector<GenericElement> myEls;
 
     if (NDEBUG)
-        cout << "NOME DO ARQUIVO PORRA: " << endl;
+        cout << "“Enter with a shape configuration file to load: " << endl;
     string path;
     cin >> path;
     ifstream arq(path);
@@ -57,8 +58,9 @@ int main()
             {
                 Triangle tri(atof(dt[0].c_str()), atof(dt[1].c_str()), atof(dt[2].c_str()));
                 myEls.push_back(tri);
+                continue;
             }
-            else
+            if (dt.size() == 2)
             {
                 Point2d pt1(atof(dt[0].c_str()), atof(dt[1].c_str()));
                 getline(arq, aux);
@@ -69,8 +71,19 @@ int main()
                 Point2d pt3(atof(dt[0].c_str()), atof(dt[1].c_str()));
                 Triangle tri(pt1, pt2, pt3);
                 myEls.push_back(tri);
+                continue;
             }
-            continue;
+            if (dt.size() == 1)
+            {
+                float e1 = atof(aux.c_str());
+                getline(arq, aux);
+                float e2 = atof(aux.c_str());
+                getline(arq, aux);
+                float e3 = atof(aux.c_str());
+                Triangle tri(e1, e2, e3);
+                myEls.push_back(tri);
+                continue;
+            }
         }
         if (aux == "sphere")
         {

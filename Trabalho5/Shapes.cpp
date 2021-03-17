@@ -35,7 +35,6 @@ Tetrahedron::Tetrahedron(Point3d p1, Point3d p2, Point3d p3, Point3d p4)
     m_d = getDistance(p3, p2);
     m_e = getDistance(p1, p3);
     m_f = getDistance(p3, p4);
-    //cout << m_a << " " << m_b << " " << m_c << " " << m_d << " " << m_e << " " << m_f << endl;
 }
 float triangleArea(float e1, float e2, float e3)
 {

@@ -5,6 +5,8 @@
 #include <sstream>
 #include <map>
 #include <iomanip>
+#include <cfenv>
+
 enum DataType
 {
     tnone,
@@ -36,14 +38,14 @@ public:
     string ShowInfo()
     {
         stringstream saida;
-
+        //fesetround(FE_DOWNWARD);
         if (m_dataType == tnone)
             saida << " -> "
                   << "NULL";
         if (m_dataType == tcircle)
             saida << "circle -> " << setprecision(2) << fixed << ((Circle *)m_data)->CalcArea();
         if (m_dataType == tsquare)
-            saida << "tquare -> " << setprecision(2) << fixed << ((Square *)m_data)->CalcArea();
+            saida << "square -> " << setprecision(2) << fixed << ((Square *)m_data)->CalcArea();
         if (m_dataType == ttriangle)
             saida << "triangle -> " << setprecision(2) << fixed << ((Triangle *)m_data)->CalcArea();
         if (m_dataType == tsphere)
