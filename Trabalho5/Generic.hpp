@@ -27,6 +27,21 @@ private:
 
 public:
     GenericElement();
+    ~GenericElement()
+    {
+        if (m_dataType == tcircle)
+            delete ((Circle *)m_data);
+        if (m_dataType == tsquare)
+            delete ((Square *)m_data);
+        if (m_dataType == ttriangle)
+            delete ((Triangle *)m_data);
+        if (m_dataType == tsphere)
+            delete ((Sphere *)m_data);
+        if (m_dataType == ttetrahedron)
+            delete ((Tetrahedron *)m_data);
+        if (m_dataType == tcube)
+            delete ((Cube *)m_data);
+    };
     GenericElement(Circle v);
     GenericElement(Square v);
     GenericElement(Triangle v);

@@ -11,7 +11,7 @@ vector<string> splitString(string s, char it)
     {
         if (c == it)
         {
-            ret.push_back(str);
+            ret.emplace_back(str);
             str.clear();
         }
         else
@@ -20,14 +20,14 @@ vector<string> splitString(string s, char it)
                 str = str + c;
         }
     }
-    ret.push_back(str);
+    ret.emplace_back(str);
     return ret;
 }
 
 int main()
 {
 
-    vector<GenericElement> myEls;
+    vector<GenericElement *> myEls;
 
     if (NDEBUG)
         cout << "“Enter with a shape configuration file to load: " << endl;
@@ -47,7 +47,7 @@ int main()
         {
             getline(arq, aux);
             Circle circ(atof(aux.c_str()));
-            myEls.push_back(circ);
+            myEls.emplace_back(new GenericElement(circ));
             continue;
         }
         if (aux == "triangle")
@@ -57,7 +57,7 @@ int main()
             if (dt.size() == 3)
             {
                 Triangle tri(atof(dt[0].c_str()), atof(dt[1].c_str()), atof(dt[2].c_str()));
-                myEls.push_back(tri);
+                myEls.emplace_back(new GenericElement(tri));
                 continue;
             }
             if (dt.size() == 2)
@@ -70,7 +70,7 @@ int main()
                 dt = splitString(aux, ',');
                 Point2d pt3(atof(dt[0].c_str()), atof(dt[1].c_str()));
                 Triangle tri(pt1, pt2, pt3);
-                myEls.push_back(tri);
+                myEls.emplace_back(new GenericElement(tri));
                 continue;
             }
             if (dt.size() == 1)
@@ -81,7 +81,7 @@ int main()
                 getline(arq, aux);
                 float e3 = atof(aux.c_str());
                 Triangle tri(e1, e2, e3);
-                myEls.push_back(tri);
+                myEls.emplace_back(new GenericElement(tri));
                 continue;
             }
         }
@@ -89,14 +89,14 @@ int main()
         {
             getline(arq, aux);
             Sphere sph(atof(aux.c_str()));
-            myEls.push_back(sph);
+            myEls.emplace_back(new GenericElement(sph));
             continue;
         }
         if (aux == "square")
         {
             getline(arq, aux);
             Square qua(atof(aux.c_str()));
-            myEls.push_back(qua);
+            myEls.emplace_back(new GenericElement(qua));
             continue;
         }
         if (aux == "tetrahedron")
@@ -118,19 +118,20 @@ int main()
             Point3d pt4(atof(dt[0].c_str()), atof(dt[1].c_str()), atof(dt[2].c_str()));
 
             Tetrahedron tet(pt1, pt2, pt3, pt4);
-            myEls.push_back(tet);
+            myEls.emplace_back(new GenericElement(tet));
             continue;
         }
         if (aux == "cube")
         {
             getline(arq, aux);
             Cube cub(atof(aux.c_str()));
-            myEls.push_back(cub);
+            myEls.emplace_back(new GenericElement(cub));
         }
     }
     for (size_t i = 0; i < myEls.size(); i++)
     {
-        cout << "Object #" << i << " is " << myEls.at(i).ShowInfo() << endl;
+        cout << "Object #" << i << " is " << myEls.at(i)->ShowInfo() << endl;
+        delete (myEls.at(i));
     }
     return 0;
 }
