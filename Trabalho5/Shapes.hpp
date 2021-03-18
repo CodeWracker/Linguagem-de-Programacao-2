@@ -14,6 +14,7 @@ public:
     float m_x, m_y;
     Point2d(){};
     Point2d(float x, float y) : m_x(x), m_y(y){};
+    ~Point2d(){};
 };
 class Point3d
 {
@@ -21,6 +22,7 @@ public:
     float m_x, m_y, m_z;
     Point3d(){};
     Point3d(float x, float y, float z) : m_x(x), m_y(y), m_z(z){};
+    ~Point3d(){};
 };
 
 class Circle
@@ -31,6 +33,7 @@ private:
 public:
     Circle(){};
     Circle(float r) : m_ratio(r){};
+    ~Circle(){};
     float CalcArea();
 };
 class Square
@@ -41,6 +44,7 @@ private:
 public:
     Square(){};
     Square(float e) : m_edge(e){};
+    ~Square(){};
     float CalcArea();
 };
 class Triangle
@@ -51,6 +55,7 @@ private:
 
 public:
     Triangle(){};
+    ~Triangle(){};
     Triangle(Point2d p1, Point2d p2, Point2d p3);
     Triangle(float e1, float e2, float e3) : m_e1(e1), m_e2(e2), m_e3(e3){};
     float CalcArea();
@@ -62,6 +67,7 @@ private:
 
 public:
     Sphere(){};
+    ~Sphere(){};
     Sphere(float r) : m_ratio(r){};
     float CalcArea();
 };
@@ -74,6 +80,7 @@ private:
 
 public:
     Tetrahedron(){};
+    ~Tetrahedron(){};
     Tetrahedron(Point3d p1, Point3d p2, Point3d p3, Point3d p4);
     float CalcArea();
 };
@@ -84,6 +91,7 @@ private:
 
 public:
     Cube(){};
+    ~Cube(){};
     Cube(float r) : m_edge(r){};
     float CalcArea();
 };
