@@ -27,6 +27,7 @@ vector<string> splitString(string s, char it)
 int main()
 {
 
+    
     vector<GenericElement *> myEls;
 
     if (NDEBUG)
