@@ -12,8 +12,6 @@ int main()
     emps.push_back(e3);
     Empregado e4("Rodrigo", 200);
     emps.push_back(e4);
-    for (Empregado e : emps)
-        cout << e.toString() << endl;
 
     vector<Gerente> gns;
     Gerente g1;
@@ -45,10 +43,14 @@ int main()
     vns.push_back(v3);
     vns.push_back(v4);
     vns.push_back(v5);
-    vns.push_back(v6);
     v6.setComissao(12);
+    vns.push_back(v6);
+    emps.push_back(v3);
+
     for (Vendedor v : vns)
         cout << v.toString(4) << endl;
 
+    for (Empregado e : emps)
+        cout << e.toString() << endl;
     return 0;
 }
