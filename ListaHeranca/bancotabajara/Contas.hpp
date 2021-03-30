@@ -4,6 +4,8 @@
 #include <sstream>
 #include <iomanip>
 using namespace std;
+class ContaEspecial;
+class ContaCorrente;
 class ContaCorrente
 {
 protected:
@@ -19,6 +21,10 @@ public:
     bool sacar(float qnt);
     string toString();
     bool transferir(ContaCorrente *conta, float qnt);
+    void operator+=(float qnt)
+    {
+        depositar(qnt);
+    };
 
     //bool transferir(ContaEspecial conta,float qnt);
 };
@@ -38,13 +44,15 @@ public:
             return false;
         _saldo -= qnt;
         return true;
-    }
+    };
     string toString()
     {
         stringstream s;
         s.precision(2);
         s << "Saldo: " << fixed << _saldo << "; Limite: " << _limite;
         return s.str();
-    }
+    };
+
+    bool transferir(ContaCorrente *conta, float qnt);
 };
 #endif

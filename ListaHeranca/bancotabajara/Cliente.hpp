@@ -39,7 +39,14 @@ public:
     bool pedirContaCorrente();
     string toString();
     bool sacar(float qnt);
-    ContaCorrente *getConta() { return (ContaCorrente *)_conta; }
+
+    ContaCorrente *getConta() //isso aqui não funciona... Eu teria que fazer tudo usar genericConta
+    {
+        if (_type == t_CC)
+            return (ContaCorrente *)_conta;
+        else
+            return (ContaEspecial *)_conta;
+    }
 };
 class Cliente
 {

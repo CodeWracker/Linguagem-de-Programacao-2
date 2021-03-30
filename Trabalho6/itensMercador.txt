@@ -1,0 +1,7 @@
+Arma,Bastão Desnecessariamente Grande,10
+Arma,Espada GPC,16
+Armadura,Colete de Espinhos,25
+Armadura,Warmog,20
+Arma,Graveto Podre,8001
+Item, Poção De Cura
+

@@ -10,11 +10,25 @@ string ContaCorrente::toString()
 
 bool ContaCorrente::transferir(ContaCorrente *conta, float qnt)
 {
+    cout << "A" << endl;
+    if (!sacar(qnt))
+    {
+        cout << "C" << endl;
+        return false;
+    }
+    conta->depositar(qnt);
+    return true;
+}
+
+bool ContaEspecial::transferir(ContaCorrente *conta, float qnt)
+{
+    cout << "B" << endl;
     if (!sacar(qnt))
         return false;
     conta->depositar(qnt);
     return true;
 }
+
 ContaEspecial::ContaEspecial(ContaCorrente *c)
 {
     _limite = 100;
