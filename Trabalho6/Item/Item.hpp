@@ -10,20 +10,9 @@ protected:
     string _nome;
 
 public:
-    Item(/* args */)
-    {
-        _nome = ("NONAME");
-        _valor = 1;
-    }
-    Item(int v, string n)
-    {
-        _nome = n;
-        _valor = v;
-    }
-
-    ~Item()
-    {
-    }
+    Item();
+    Item(int v, string n);
+    ~Item();
 
 public:
     string str()
@@ -40,22 +29,9 @@ private:
     int _atk;
 
 public:
-    Arma()
-    {
-        _atk = 1;
-        _nome = ("NONAME");
-        _valor = 1;
-    }
-    Arma(int v, string n, int a)
-    {
-        _atk = a;
-        _nome = n;
-        _valor = v;
-    }
-
-    ~Arma()
-    {
-    }
+    Arma();
+    Arma(int v, string n, int a);
+    ~Arma();
 
 public:
     string str()
@@ -71,22 +47,9 @@ private:
     int _def;
 
 public:
-    Armadura()
-    {
-        _def = 1;
-        _nome = ("NONAME");
-        _valor = 1;
-    }
-    Armadura(int v, string n, int d)
-    {
-        _def = d;
-        _nome = n;
-        _valor = v;
-    }
-
-    ~Armadura()
-    {
-    }
+    Armadura();
+    Armadura(int v, string n, int d);
+    ~Armadura();
 
 public:
     string str()

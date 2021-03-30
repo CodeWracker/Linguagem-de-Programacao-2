@@ -10,21 +10,9 @@ protected:
     string _raca;
 
 public:
-    Monstro()
-    {
-        Item i(15, "Orelha de Goblin");
-        _drop = i;
-        _raca = "Goblin";
-    };
-    Monstro(string drop, string raca, int val)
-    {
-        Item i(val, drop);
-        _drop = i;
-        _raca = raca;
-    }
-    ~Monstro(){
-        //delete (_drop);
-    };
+    Monstro();
+    Monstro(string drop, string raca, int val);
+    ~Monstro();
 
 public:
     string str()

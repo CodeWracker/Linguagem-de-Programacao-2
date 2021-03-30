@@ -16,8 +16,8 @@ protected:
     Armadura *_armaduraEquipada;
 
 public:
-    SerVivo(){};
-    ~SerVivo(){};
+    SerVivo();
+    ~SerVivo();
 
 public:
     bool atacar(SerVivo *inimigo);
