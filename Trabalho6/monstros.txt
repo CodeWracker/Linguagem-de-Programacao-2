@@ -1,0 +1,3 @@
+Raça,Drop,Valor
+Goblin,Orelha de Goblin,15
+Lobo,Rabo de Lobo,10

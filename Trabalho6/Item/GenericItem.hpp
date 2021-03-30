@@ -1,5 +1,5 @@
 #ifndef GENITEM_HPP
 #define GENITEM_HPP
-#include "Item.hpp"
+#include "./Item.hpp"
 
 #endif

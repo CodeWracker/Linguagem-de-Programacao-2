@@ -10,6 +10,7 @@ protected:
 
 public:
     Stats() : _forca(1), _constituicao(1), _destreza(1){};
+    ~Stats(){};
 
 public:
     void setFor(int q) { _forca = q; };
