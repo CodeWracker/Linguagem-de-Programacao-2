@@ -1,9 +1,1 @@
-#include "./SerVivo.hpp"
-
-SerVivo::SerVivo()
-{
-}
-
-SerVivo::~SerVivo()
-{
-}
+#include "SerVivo/SerVivo.hpp"

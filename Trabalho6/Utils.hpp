@@ -3,8 +3,6 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include "classes.hpp"
-#include "SerVivo/SerVivo.hpp"
 #include "Monstro/Monstro.hpp"
 using namespace std;
 bool loadData(vector<string> &dataList, string path);
