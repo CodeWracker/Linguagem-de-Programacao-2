@@ -6,6 +6,6 @@
 #include "Monstro/Monstro.hpp"
 using namespace std;
 bool loadData(vector<string> &dataList, string path);
-void getMonsterData(vector<string> &dataList, vector<Monstro *> &monsterList);
+void getMonsterData(vector<string> &dataList, vector<Monstro> &monsterList);
 
 #endif

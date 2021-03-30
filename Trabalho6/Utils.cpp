@@ -33,7 +33,7 @@ bool loadData(vector<string> &dataList, string path)
     }
     return true;
 }
-void getMonsterData(vector<string> &dataList, vector<Monstro *> &monsterList)
+void getMonsterData(vector<string> &dataList, vector<Monstro> &monsterList)
 {
     for (string l : dataList)
     {
@@ -42,8 +42,8 @@ void getMonsterData(vector<string> &dataList, vector<Monstro *> &monsterList)
             continue;
         if (splitL.size() == 3)
         {
-            //Monstro *m = new Monstro(splitL.at(0), splitL.at(1), atoi(splitL.at(2).c_str()));
-            monsterList.push_back(new Monstro());
+            Monstro m(splitL.at(0), splitL.at(1), atoi(splitL.at(2).c_str()));
+            monsterList.push_back(m);
         }
     }
 }
