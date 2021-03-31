@@ -22,7 +22,7 @@ int main()
     myMap["4"] = showData;
 
     cout << "Voce renasceu em um Isekai, agora voce esta em um mundo de fantasia como SAO, ou seja, nada de magias, mas ainda existem os atributos" << endl;
-    cout << "DIgite o seu nome: " << endl;
+    cout << "Digite o seu nome: " << endl;
     string choice;
     getline(cin, choice);
     Pessoa heroi(choice, 100);

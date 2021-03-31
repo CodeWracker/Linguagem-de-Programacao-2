@@ -5,6 +5,8 @@ Pessoa::Pessoa(/* args */)
     _pontos = 3;
     _nivel = 1;
     _nome = "NONAME";
+    _armaEquipada = new Arma();
+    _armaduraEquipada = new Armadura();
 }
 Pessoa::Pessoa(string nome, size_t dinheiro)
 {
@@ -12,6 +14,8 @@ Pessoa::Pessoa(string nome, size_t dinheiro)
     _dinheiro = dinheiro;
     _pontos = 3;
     _nivel = 1;
+    _armaEquipada = new Arma();
+    _armaduraEquipada = new Armadura();
 }
 Pessoa::~Pessoa()
 {
@@ -29,7 +33,7 @@ bool Pessoa::upar(string atr, size_t qnt)
     if (atr == "con")
     {
         _stats.setCon(qnt);
-        _hp += 3;
+        _hp += 3 * qnt;
     }
     if (atr == "dex")
         _stats.setDex(qnt);
@@ -42,8 +46,8 @@ string Pessoa::str()
     s << "Nome: " << _nome << " // Dinheiro: " << _dinheiro << " // Nivel: " << _nivel << " // XP: " << _xp << " //Pontos: " << _pontos << endl;
     s << "Seus Atributos: " << showStats() << endl;
     s << "HP: " << _hp.str() << " // SP: " << _sp.str() << endl;
-    s << "      Arma Equipada: " << _armaEquipada->str() << " // Armadura Equipada: " << _armaduraEquipada->str() << endl;
-    s << "      Mochila:" << endl;
+    s << "Arma Equipada: " << _armaEquipada->str() << " // Armadura Equipada: " << _armaduraEquipada->str() << endl;
+    s << "Mochila:" << endl;
     s << bagToStr();
     return s.str();
 };
