@@ -1,8 +1,8 @@
-Tipo,Nome,atributo
-Arma,Bastão Desnecessariamente Grande,10
-Arma,Espada GPC,16
-Armadura,Colete de Espinhos,25
-Armadura,Warmog,20
-Arma,Graveto Podre,8001
-Item, Poção De Cura
+Tipo,Nome,valor,atributo,ação
+Arma,Bastão Desnecessariamente Grande,20,10
+Arma,Espada GPC,25,16
+Armadura,Colete de Espinhos,40,25
+Armadura,Warmog,30,20
+Arma,Graveto Podre,400,8001
+Consumivel,Poção De Cura,1,10,1
 

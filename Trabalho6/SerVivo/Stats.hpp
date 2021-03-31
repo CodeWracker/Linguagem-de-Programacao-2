@@ -1,6 +1,8 @@
 #ifndef STATS_HPP
 #define STATS_HPP
-
+#include <iostream>
+#include <sstream>
+using namespace std;
 class Stats
 {
 protected:
@@ -13,11 +15,18 @@ public:
     ~Stats(){};
 
 public:
-    void setFor(int q) { _forca = q; };
+    void setFor(int q) { _forca += q; };
 
-    void setCon(int q) { _constituicao = q; };
+    void setCon(int q) { _constituicao += q; };
 
-    void setDex(int q) { _destreza = q; };
+    void setDex(int q) { _destreza += q; };
+
+    string str()
+    {
+        stringstream s;
+        s << "FOR: " << _forca << " // CON: " << _constituicao << " // DEX: " << _destreza;
+        return s.str();
+    }
 };
 
 #endif

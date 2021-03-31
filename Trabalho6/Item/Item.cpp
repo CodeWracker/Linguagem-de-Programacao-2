@@ -18,8 +18,8 @@ Item::~Item()
 Arma::Arma()
 {
     _atk = 1;
-    _nome = ("NONAME");
-    _valor = 1;
+    _nome = ("Punho");
+    _valor = 0;
 }
 Arma::Arma(int v, string n, int a)
 {
@@ -34,7 +34,7 @@ Arma::~Arma()
 Armadura::Armadura()
 {
     _def = 1;
-    _nome = ("NONAME");
+    _nome = ("Roupa de Pano");
     _valor = 1;
 }
 Armadura::Armadura(int v, string n, int d)
@@ -47,3 +47,27 @@ Armadura::Armadura(int v, string n, int d)
 Armadura::~Armadura()
 {
 }
+Consumivel::Consumivel()
+{
+    _atr = 1;
+    _nome = ("NONAME");
+    _valor = 1;
+    _acao = "Desconhecido";
+}
+Consumivel::Consumivel(int v, string n, int atr, int acao)
+{
+    _atr = atr;
+    _nome = n;
+    _valor = v;
+    if (acao == 1)
+        _acao = "HP";
+    else
+    {
+        if (acao == 2)
+            _acao = "MP";
+
+        else
+            _acao = "Desconhecido";
+    }
+}
+Consumivel::~Consumivel() {}

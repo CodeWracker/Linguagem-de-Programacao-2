@@ -8,10 +8,11 @@ class Monstro : public SerVivo
 protected:
     Item _drop;
     string _raca;
+    size_t _xpDrop;
 
 public:
     Monstro();
-    Monstro(string drop, string raca, int val);
+    Monstro(string raca, string drop, int val, int xp);
     ~Monstro();
 
 public:
@@ -19,7 +20,7 @@ public:
     {
         stringstream s;
 
-        s << _raca << ": " << _drop.str() << " PP";
+        s << _raca << " - Drop: " << _drop.str() << " // XP drop: " << _xpDrop;
         return s.str();
     };
 };

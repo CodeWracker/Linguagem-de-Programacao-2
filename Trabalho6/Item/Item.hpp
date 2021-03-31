@@ -59,5 +59,24 @@ public:
         return s.str();
     }
 };
+class Consumivel : public Item
+{
+private:
+    int _atr;
+    string _acao;
+
+public:
+    Consumivel();
+    Consumivel(int v, string n, int atr, int acao);
+    ~Consumivel();
+
+public:
+    string str()
+    {
+        stringstream s;
+        s << _nome << ", " << _valor << "PP / Recupera " << _atr << " de " << _acao;
+        return s.str();
+    }
+};
 
 #endif

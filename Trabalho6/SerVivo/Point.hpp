@@ -1,6 +1,8 @@
 #ifndef POINT_HPP
 #define POINT_HPP
-
+#include <iostream>
+#include <sstream>
+using namespace std;
 class Point
 {
 protected:
@@ -12,14 +14,24 @@ public:
     ~Point(){};
 
 public:
-    void setMaximo(int q) { _maximo = q; };
     void operator+=(int q)
     {
+        _maximo += q;
+        _atual = _maximo;
+    };
+    void operator+(int q)
+    {
         _atual += q;
-    }
-    void operator-=(int q)
+    };
+    void operator-(int q)
     {
         _atual -= q;
+    };
+    string str()
+    {
+        stringstream s;
+        s << "[ Maximo: " << _maximo << ", Atual: " << _atual << " ]";
+        return s.str();
     }
 };
 

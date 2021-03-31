@@ -13,8 +13,7 @@ vector<string> splitString(string s, char it)
         }
         else
         {
-            if (c != ' ')
-                str = str + c;
+            str = str + c;
         }
     }
     ret.emplace_back(str);
@@ -38,12 +37,52 @@ void getMonsterData(vector<string> &dataList, vector<Monstro> &monsterList)
     for (string l : dataList)
     {
         vector<string> splitL = splitString(l, ',');
+        if (splitL.at(0) == "Raça")
+            continue;
+        if (splitL.size() == 4)
+        {
+            Monstro m(splitL.at(0), splitL.at(1), atoi(splitL.at(2).c_str()), atoi(splitL.at(3).c_str()));
+            monsterList.push_back(m);
+        }
+    }
+}
+void getItemsData(vector<string> &dataList, Pessoa &hito)
+{
+    for (string l : dataList)
+    {
+        vector<string> splitL = splitString(l, ',');
         if (splitL.at(0) == "Tipo")
             continue;
-        if (splitL.size() == 3)
+        if (splitL.at(0) == "Item")
         {
-            Monstro m(splitL.at(0), splitL.at(1), atoi(splitL.at(2).c_str()));
-            monsterList.push_back(m);
+            Item *item = new Item(atoi(splitL.at(2).c_str()), splitL.at(1));
+            GenericItem *i = new GenericItem(item);
+            hito.push_bag(i);
+        }
+        if (splitL.at(0) == "Arma")
+        {
+            int val = atoi(splitL.at(2).c_str());
+            int atk = atoi(splitL.at(3).c_str());
+            Arma *item = new Arma(val, splitL.at(1), atk);
+            GenericItem *i = new GenericItem(item);
+            hito.push_bag(i);
+        }
+        if (splitL.at(0) == "Armadura")
+        {
+            int val = atoi(splitL.at(2).c_str());
+            int def = atoi(splitL.at(3).c_str());
+            Armadura *item = new Armadura(val, splitL.at(1), def);
+            GenericItem *i = new GenericItem(item);
+            hito.push_bag(i);
+        }
+        if (splitL.at(0) == "Consumivel")
+        {
+            int val = atoi(splitL.at(2).c_str());
+            int atr = atoi(splitL.at(3).c_str());
+            int acao = atoi(splitL.at(4).c_str());
+            Consumivel *item = new Consumivel(val, splitL.at(1), atr, acao);
+            GenericItem *i = new GenericItem(item);
+            hito.push_bag(i);
         }
     }
 }
