@@ -36,6 +36,10 @@ public:
         if (_tipo == t_Consumivel)
             s << ((Consumivel *)_item)->str();
         return s.str();
+    };
+    size_t getValue()
+    {
+        return ((Item *)_item)->getValue();
     }
 };
 

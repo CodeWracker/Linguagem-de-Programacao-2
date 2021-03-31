@@ -12,8 +12,8 @@ protected:
     Point _hp;
     Point _sp;
     Stats _stats;
-    Arma _armaEquipada;
-    Armadura _armaduraEquipada;
+    Arma *_armaEquipada;
+    Armadura *_armaduraEquipada;
 
 public:
     SerVivo();

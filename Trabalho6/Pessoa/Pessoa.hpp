@@ -37,6 +37,15 @@ public:
     string getNome() { return _nome; }
     string str();
     string bagToStr();
+    size_t getDinheiro() { return _dinheiro; };
+    GenericItem *pop_bag(size_t i)
+    {
+        if (i >= _mochila.size())
+            return nullptr;
+        GenericItem *it = _mochila.at(i);
+        _mochila.erase(_mochila.begin() + i);
+        return it;
+    }
 };
 
 #endif

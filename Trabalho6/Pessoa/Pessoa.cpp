@@ -42,12 +42,9 @@ string Pessoa::str()
     s << "Nome: " << _nome << " // Dinheiro: " << _dinheiro << " // Nivel: " << _nivel << " // XP: " << _xp << " //Pontos: " << _pontos << endl;
     s << "Seus Atributos: " << showStats() << endl;
     s << "HP: " << _hp.str() << " // SP: " << _sp.str() << endl;
-    s << "      Arma Equipada: " << _armaEquipada.str() << " // Armadura Equipada: " << _armaduraEquipada.str() << endl;
-    s << "      Mochila:";
-    for (GenericItem *i : _mochila)
-    {
-        s << "        - " << i->str() << endl;
-    }
+    s << "      Arma Equipada: " << _armaEquipada->str() << " // Armadura Equipada: " << _armaduraEquipada->str() << endl;
+    s << "      Mochila:" << endl;
+    s << bagToStr();
     return s.str();
 };
 
@@ -58,5 +55,6 @@ string Pessoa::bagToStr()
     {
         s << i << " - " << _mochila.at(i)->str() << endl;
     }
+
     return s.str();
 }

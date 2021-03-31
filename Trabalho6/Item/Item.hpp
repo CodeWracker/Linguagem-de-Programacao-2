@@ -20,7 +20,8 @@ public:
         stringstream s;
         s << _nome << ", " << _valor << "PP";
         return s.str();
-    }
+    };
+    size_t getValue() { return _valor; };
 };
 
 class Arma : public Item
