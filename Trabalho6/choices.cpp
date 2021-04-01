@@ -60,31 +60,61 @@ void upgradeStatus(Pessoa &mercador, Pessoa &heroi)
         }
     }
 }
+bool storeTransaction(Pessoa &comprador, Pessoa &vendedor)
+{
+    string choice;
+    cout << vendedor.bagToStr() << endl;
+    cout << "Escolha o item (PARA VOLTAR DIGITE B)" << endl;
+    cin >> choice;
+    system("clear");
+    if (choice == "b" || choice == "B")
+        return false;
+    GenericItem *i = vendedor.pop_bag(atoi(choice.c_str()));
+    if (i == nullptr)
+        cout << "Item invalido!" << endl;
+    else
+    {
+        if (comprador.gastar(i->getValue()))
+        {
+            comprador.push_bag(i);
+            vendedor.depositar(i->getValue());
+        }
+        else
+        {
+            cout << "Sem Dinheiro, sem item! Devolve isso ai *****!!" << endl;
+            vendedor.push_bag(i);
+        }
+    }
+    return true;
+}
 void openStore(Pessoa &mercador, Pessoa &heroi)
 {
     system("clear");
     while (1)
     {
 
-        cout << mercador.bagToStr() << endl;
         cout << "Você possui " << heroi.getDinheiro() << "PP" << endl;
         string choice;
-        cout << "Que item quer comprar? (PARA SAIR DIGITE S)" << endl;
+        cout << "Quer (C)omprar ou (V)ender? (PARA SAIR DIGITE S)" << endl;
         cin >> choice;
         system("clear");
         if (choice == "s" || choice == "S")
             break;
-        GenericItem *i = mercador.pop_bag(atoi(choice.c_str()));
-        if (i == nullptr)
-            cout << "Item invalido!" << endl;
-        else
+
+        if (choice == "c" || choice == "C")
         {
-            if (heroi.gastar(i->getValue()))
-                heroi.push_bag(i);
-            else
+            while (1)
             {
-                cout << "Sem Dinheiro, sem item! Devolve isso ai!!" << endl;
-                mercador.push_bag(i);
+                if (!storeTransaction(heroi, mercador))
+                    break;
+            }
+        }
+        if (choice == "v" || choice == "V")
+        {
+            while (1)
+            {
+                if (!storeTransaction(mercador, heroi))
+                    break;
             }
         }
     }

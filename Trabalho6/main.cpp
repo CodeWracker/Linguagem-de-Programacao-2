@@ -38,9 +38,12 @@ int main()
         cout << "Escolha" << endl;
 
         cin >> choice;
+        if (atoi(choice.c_str()) > 5)
+            continue;
         if (choice == "5")
             break;
         else
+
             (*myMap[choice])(mercador, heroi);
     }
     return 0;
