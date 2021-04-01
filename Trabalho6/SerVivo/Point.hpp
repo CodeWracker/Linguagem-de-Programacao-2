@@ -19,20 +19,27 @@ public:
         _maximo += q;
         _atual = _maximo;
     };
-    void operator+(int q)
+    void operator+(size_t q)
     {
         _atual += q;
+        if (_atual > _maximo)
+            _atual = _maximo;
     };
-    void operator-(int q)
+    void operator-(size_t q)
     {
         _atual -= q;
+        if (_atual < 0)
+            _atual = 0;
     };
     string str()
     {
         stringstream s;
-        s << "[ Maximo: " << _maximo << ", Atual: " << _atual << " ]";
+        s << "[ " << _atual << "/ " << _maximo << " ]";
         return s.str();
     }
+    size_t getAtual() { return _atual; };
+    size_t getMax() { return _maximo; };
+    bool isMax() { return _atual == _maximo; }
 };
 
 #endif

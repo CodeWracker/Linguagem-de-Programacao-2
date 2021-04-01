@@ -40,7 +40,9 @@ public:
     size_t getValue()
     {
         return ((Item *)_item)->getValue();
-    }
+    };
+    ItemType getTipo() { return _tipo; };
+    void *getPointer() { return _item; }
 };
 
 #endif

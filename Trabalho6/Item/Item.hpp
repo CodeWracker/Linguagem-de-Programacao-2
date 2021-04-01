@@ -77,7 +77,9 @@ public:
         stringstream s;
         s << _nome << ", " << _valor << "PP / Recupera " << _atr << " de " << _acao;
         return s.str();
-    }
+    };
+    string getAcao() { return _acao; };
+    size_t getAtr() { return _atr; };
 };
 
 #endif

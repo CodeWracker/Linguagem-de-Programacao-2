@@ -13,11 +13,12 @@ void showData(Pessoa &mercador, Pessoa &heroi)
             break;
         if (choice == "s" || choice == "S")
         {
-            cout << "Que item quer Equipar?" << endl;
+            cout << "Que item quer Equipar ou usar?" << endl;
             cin >> choice;
             int c = atoi(choice.c_str());
+            system("clear");
+            heroi.equipar(c);
         }
-        system("clear");
     }
 }
 void upgradeStatus(Pessoa &mercador, Pessoa &heroi)

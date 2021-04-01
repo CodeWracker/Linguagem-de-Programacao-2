@@ -46,6 +46,53 @@ public:
         _mochila.erase(_mochila.begin() + i);
         return it;
     }
+    bool equipar(size_t n)
+    {
+        cout << "equipando" << endl;
+        if (n < 0 || n >= _mochila.size())
+            return false;
+        GenericItem *i = pop_bag(n);
+        cout << i->getTipo() << endl;
+        if (i->getTipo() == t_Item)
+        {
+            push_bag(i);
+            return false;
+        }
+
+        if (i->getTipo() == t_Consumivel)
+        {
+            Consumivel *it = (Consumivel *)i->getPointer();
+            if (it->getAcao() == "HP")
+            {
+                if (!_hp.isMax())
+                {
+                    _hp + it->getAtr();
+                    delete i;
+                }
+                else
+                    push_bag(i);
+            }
+        }
+        if (i->getTipo() == t_Arma)
+        {
+            GenericItem *rem = new GenericItem(_armaEquipada);
+            if (_armaEquipada->getValue() != 0)
+                push_bag(rem);
+            else
+                delete _armaEquipada;
+            _armaEquipada = (Arma *)i->getPointer();
+        }
+        if (i->getTipo() == t_Armadura)
+        {
+            GenericItem *rem = new GenericItem(_armaduraEquipada);
+            if (_armaduraEquipada->getValue() != 0)
+                push_bag(rem);
+            else
+                delete _armaduraEquipada;
+            _armaduraEquipada = (Armadura *)i->getPointer();
+        }
+        return true;
+    }
 };
 
 #endif
