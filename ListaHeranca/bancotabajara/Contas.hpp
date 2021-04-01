@@ -18,7 +18,7 @@ public:
 public:
     float getSaldo() { return _saldo; };
     void depositar(float qnt) { _saldo = _saldo + qnt; };
-    bool sacar(float qnt);
+    virtual bool sacar(float qnt);
     string toString();
     bool transferir(ContaCorrente *conta, float qnt);
     void operator+=(float qnt)

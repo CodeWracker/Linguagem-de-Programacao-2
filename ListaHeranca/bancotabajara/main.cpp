@@ -38,7 +38,7 @@ int main()
           << cli2.toString() << endl
           << "-------------------------------" << endl;
 
-     *cli1.at(1)->getConta() += 200.0;
+     cli1.at(2)->getConta()->transferir(cli2.at(1)->getConta(), 100);
      cout << endl;
      cout << cli1.toString() << endl
           << cli2.toString() << endl
