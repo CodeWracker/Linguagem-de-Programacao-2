@@ -35,6 +35,7 @@ int main()
                 cout << "Voce morreu" << endl;
             break;
         }
+        heroi.rest();
         if (NDEBUG)
             cout << heroi.getNome() << ", você possui " << heroi.getPontos() << " pontos" << endl;
         if (NDEBUG)

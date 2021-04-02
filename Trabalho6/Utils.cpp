@@ -35,7 +35,12 @@ bool loadData(vector<string> &dataList, string path)
 Monstro *createMonster(vector<vector<string>> monsterData, size_t nivel)
 {
     int i = 0;
-
+    /*for (vector<string> sL : monsterData)
+    {
+        for (string s : sL)
+            cout << s << ",";
+        cout << endl;
+    }*/
     vector<string>
         splitL = monsterData.at(i);
     Monstro *m = new Monstro(splitL.at(0), splitL.at(1), atoi(splitL.at(2).c_str()), atoi(splitL.at(3).c_str()), nivel);
@@ -62,13 +67,17 @@ void getMonsterData(vector<string> &dataList, vector<vector<vector<string>>> &mo
         vector<vector<string>> aux;
         vector<string> splitL = splitString(dataList.at(i), ',');
         aux.push_back(splitL);
-        if (splitL.at(0) == "Raça")
+        if (splitL.at(0) == "-")
+        {
+            i += 2;
             continue;
+        }
         if (splitL.size() == 4)
         {
-            splitString(dataList.at(i), ',');
+            i++;
+            splitL = splitString(dataList.at(i), ',');
             aux.push_back(splitL);
-
+            i++;
             splitL = splitString(dataList.at(i), ',');
             aux.push_back(splitL);
 

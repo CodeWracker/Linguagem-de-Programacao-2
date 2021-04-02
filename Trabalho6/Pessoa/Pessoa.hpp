@@ -65,6 +65,8 @@ public:
     {
         return _nivel;
     }
+    string resumo();
+    void rest() { _sp.recover(); }
 };
 
 #endif

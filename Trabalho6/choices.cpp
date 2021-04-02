@@ -173,7 +173,8 @@ void hunt(Pessoa &mercador, Pessoa &heroi, vector<vector<vector<string>>> &monst
         cout << "Não se esqueça que cansaço mata" << endl;
     while (m->isAlive() && heroi.isAlive())
     {
-
+        if (NDEBUG && heroi.isAlive())
+            cout << heroi.resumo() << endl;
         if (NDEBUG)
             cout << m->str() << endl;
 
@@ -192,13 +193,15 @@ void hunt(Pessoa &mercador, Pessoa &heroi, vector<vector<vector<string>>> &monst
         {
             if (heroi.atacar(m))
 
+            {
                 if (NDEBUG)
                     cout << "Voce acertou o Golpe!" << endl;
-                else
-                {
-                    if (NDEBUG)
-                        cout << "Voce errou o Golpe!" << endl;
-                }
+            }
+            else
+            {
+                if (NDEBUG)
+                    cout << "Voce errou o Golpe!" << endl;
+            }
         }
         if (c == "1")
         {

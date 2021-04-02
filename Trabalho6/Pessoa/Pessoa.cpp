@@ -43,6 +43,15 @@ bool Pessoa::upar(string atr, size_t qnt)
     _pontos -= qnt;
     return true;
 };
+string Pessoa::resumo()
+{
+    stringstream s;
+    s << "Nome: " << _nome << " // Nivel: " << _nivel << endl;
+    s << "HP: " << _hp.str() << " // SP: " << _sp.str() << endl;
+    s << "Arma Equipada: " << _armaEquipada->str() << " // Armadura Equipada: " << _armaduraEquipada->str() << endl;
+
+    return s.str();
+}
 string Pessoa::str()
 {
     stringstream s;
