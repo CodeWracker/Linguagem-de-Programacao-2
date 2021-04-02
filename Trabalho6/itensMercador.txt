@@ -5,4 +5,3 @@ Armadura,Colete de Espinhos,40,25
 Armadura,Warmog,30,20
 Arma,Graveto Podre,400,8001
 Consumivel,Poção De Cura,1,10,1
-
