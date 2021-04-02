@@ -12,6 +12,11 @@ GenericItem::GenericItem(Item *i)
     _item = i;
     _tipo = t_Item;
 }
+GenericItem::GenericItem(Item i)
+{
+    _item = new Item(i);
+    _tipo = t_Item;
+}
 GenericItem::GenericItem(Armadura *am)
 {
     _item = am;

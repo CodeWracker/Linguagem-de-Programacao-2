@@ -2,6 +2,7 @@
 
 SerVivo::SerVivo()
 {
+    _vivo = true;
 }
 
 SerVivo::~SerVivo()

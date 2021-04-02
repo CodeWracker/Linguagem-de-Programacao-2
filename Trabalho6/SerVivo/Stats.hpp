@@ -20,7 +20,13 @@ public:
     void setCon(int q) { _constituicao += q; };
 
     void setDex(int q) { _destreza += q; };
+    int getFor() { return _forca; };
 
+    int getCon() { return _constituicao; };
+
+    int getDex() { return _destreza; };
+
+public:
     string str()
     {
         stringstream s;

@@ -18,6 +18,8 @@ private:
 public:
     GenericItem();
     GenericItem(Item *i);
+
+    GenericItem(Item i);
     GenericItem(Armadura *am);
     GenericItem(Arma *a);
     GenericItem(Consumivel *c);

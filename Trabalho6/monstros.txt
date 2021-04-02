@@ -1,3 +1,9 @@
 Raça,Drop,Valor,XP
+Arma(Nome,valor,atributo)
+Armadura(Nome,valor,atributo)
 Goblin,Orelha de Goblin,15,2
+Espada nem tão GPC,10,8
+Armadura de Couro,1,2
 Lobo,Rabo de Lobo,10,1
+Garras,1,3
+Pelo DPC,1,3

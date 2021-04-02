@@ -46,12 +46,26 @@ public:
         _mochila.erase(_mochila.begin() + i);
         return it;
     }
+    void operator+(size_t q)
+    {
+        _xp += q;
+        if (_xp >= 2 * _nivel)
+        {
+            _xp -= 2 * _nivel;
+            _nivel++;
+
+            cout << "Voce Passou de nível!!" << endl;
+            _pontos += 3;
+        }
+    }
     bool equipar(size_t n)
     {
+
         cout << "equipando" << endl;
         if (n < 0 || n >= _mochila.size())
             return false;
         GenericItem *i = pop_bag(n);
+
         cout << i->getTipo() << endl;
         if (i->getTipo() == t_Item)
         {
@@ -84,6 +98,8 @@ public:
         }
         if (i->getTipo() == t_Armadura)
         {
+
+            cout << "colocarndo armor" << endl;
             GenericItem *rem = new GenericItem(_armaduraEquipada);
             if (_armaduraEquipada->getValue() != 0)
                 push_bag(rem);

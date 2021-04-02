@@ -8,7 +8,7 @@
 using namespace std;
 vector<string> splitString(string s, char it);
 bool loadData(vector<string> &dataList, string path);
-void getMonsterData(vector<string> &dataList, vector<Monstro> &monsterList);
+void getMonsterData(vector<string> &dataList, vector<Monstro *> &monsterList);
 void getItemsData(vector<string> &dataList, Pessoa &hito);
 
 #endif

@@ -1,11 +1,13 @@
 #include "choices.hpp"
 
-void showData(Pessoa &mercador, Pessoa &heroi)
+void showData(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
 {
     system("clear");
     while (1)
     {
+
         cout << heroi.str() << endl;
+
         cout << "Deseja equipar algum item? (S/N)" << endl;
         string choice;
         cin >> choice;
@@ -13,6 +15,7 @@ void showData(Pessoa &mercador, Pessoa &heroi)
             break;
         if (choice == "s" || choice == "S")
         {
+
             cout << "Que item quer Equipar ou usar?" << endl;
             cin >> choice;
             int c = atoi(choice.c_str());
@@ -21,26 +24,34 @@ void showData(Pessoa &mercador, Pessoa &heroi)
         }
     }
 }
-void upgradeStatus(Pessoa &mercador, Pessoa &heroi)
+void upgradeStatus(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
 {
     system("clear");
     while (1)
     {
+
         cout << "Seus Atributos: " << heroi.showStats() << endl;
         if (heroi.getPontos() > 0)
         {
+
             cout << "Pontos Disponiveis: " << heroi.getPontos() << endl;
             string choice1;
             string choice2;
             string atr;
+
             cout << "Adicionar Pontos em:" << endl;
+
             cout << "1 - FOR" << endl;
+
             cout << "2 - CON" << endl;
+
             cout << "3 - DEX" << endl;
+
             cout << "4 - Voltar para o Menu" << endl;
             cin >> choice1;
             if (choice1 == "4")
                 break;
+
             cout << "Quantos pontos deseja adicionar? " << endl;
             cin >> choice2;
             if (choice1 == "1")
@@ -51,10 +62,12 @@ void upgradeStatus(Pessoa &mercador, Pessoa &heroi)
                 atr = "dex";
 
             if (!heroi.upar(atr, atoi(choice2.c_str())))
+
                 cout << "QUANTIDADE DE PONTOS INVALIDA" << endl;
         }
         else
         {
+
             cout << "Você não possui pontos disponiveis, vá caçar!" << endl;
             break;
         }
@@ -63,7 +76,9 @@ void upgradeStatus(Pessoa &mercador, Pessoa &heroi)
 bool storeTransaction(Pessoa &comprador, Pessoa &vendedor)
 {
     string choice;
+
     cout << vendedor.bagToStr() << endl;
+
     cout << "Escolha o item (PARA VOLTAR DIGITE B)" << endl;
     cin >> choice;
     system("clear");
@@ -71,6 +86,7 @@ bool storeTransaction(Pessoa &comprador, Pessoa &vendedor)
         return false;
     GenericItem *i = vendedor.pop_bag(atoi(choice.c_str()));
     if (i == nullptr)
+
         cout << "Item invalido!" << endl;
     else
     {
@@ -81,13 +97,14 @@ bool storeTransaction(Pessoa &comprador, Pessoa &vendedor)
         }
         else
         {
+
             cout << "Sem Dinheiro, sem item! Devolve isso ai *****!!" << endl;
             vendedor.push_bag(i);
         }
     }
     return true;
 }
-void openStore(Pessoa &mercador, Pessoa &heroi)
+void openStore(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
 {
     system("clear");
     while (1)
@@ -95,6 +112,7 @@ void openStore(Pessoa &mercador, Pessoa &heroi)
 
         cout << "Você possui " << heroi.getDinheiro() << "PP" << endl;
         string choice;
+
         cout << "Quer (C)omprar ou (V)ender? (PARA SAIR DIGITE S)" << endl;
         cin >> choice;
         system("clear");
@@ -117,5 +135,71 @@ void openStore(Pessoa &mercador, Pessoa &heroi)
                     break;
             }
         }
+    }
+}
+void hunt(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
+{
+    int num = rand() % (monsterList.size());
+    Monstro m = *monsterList.at(num);
+
+    cout << "Não se esqueça que cansaço mata" << endl;
+    while (m.isAlive() && heroi.isAlive())
+    {
+
+        cout << m.str() << endl;
+
+        cout << "0 - Atacar" << endl;
+
+        cout << "1 - Fugir" << endl;
+
+        cout << "Escolha" << endl;
+        bool aux = true;
+        string c;
+        cin >> c;
+        if (c == "0")
+        {
+            if (heroi.atacar(&m))
+
+                cout << "Voce acertou o Golpe!" << endl;
+            else
+                cout << "Voce errou o Golpe!" << endl;
+        }
+        if (c == "1")
+        {
+            if (heroi.fugir(&m))
+            {
+
+                cout << "Voce conseguiu fugir!" << endl;
+                break;
+            }
+            else
+            {
+
+                cout << "Voce nao conseguiu fugir e ele te atacou!" << endl;
+                if (!m.atacar(&heroi))
+                {
+
+                    cout << "ele errou o ataque" << endl;
+                    aux = false;
+                }
+            }
+        }
+        if (aux && m.isAlive())
+        {
+
+            cout << "Vez do bixo!!" << endl;
+            if (m.atacar(&heroi))
+
+                cout << "ele acertou o ataque" << endl;
+            else
+                cout << "ele errou o ataque" << endl;
+        }
+    }
+    if (!m.isAlive())
+    {
+
+        cout << "Voce matou ele!" << endl;
+        heroi.push_bag(new GenericItem(m.getDrop()));
+        heroi + m.getXp();
     }
 }

@@ -1,5 +1,6 @@
 #ifndef ITEM_HPP
 #define ITEM_HPP
+#define NDEBUG 1
 #include <iostream>
 #include <sstream>
 using namespace std;
@@ -41,6 +42,7 @@ public:
         s << _nome << ", " << _valor << "PP / ATK = " << _atk;
         return s.str();
     }
+    int getATK() { return _atk; }
 };
 class Armadura : public Item
 {
@@ -59,6 +61,7 @@ public:
         s << _nome << ", " << _valor << "PP / DEF = " << _def;
         return s.str();
     }
+    int getDEF() { return _def; }
 };
 class Consumivel : public Item
 {

@@ -20,9 +20,19 @@ public:
     {
         stringstream s;
 
-        s << _raca << " - Drop: " << _drop.str() << " // XP drop: " << _xpDrop;
+        s << _raca << " - HP:" << _hp.str() << " | Drop: " << _drop.str() << " // XP drop: " << _xpDrop;
         return s.str();
     };
+    void equipar(Arma *i)
+    {
+        _armaEquipada = i;
+    }
+    void equipar(Armadura *i)
+    {
+        _armaduraEquipada = i;
+    }
+    Item getDrop() { return _drop; }
+    size_t getXp() { return _xpDrop; }
 };
 
 #endif

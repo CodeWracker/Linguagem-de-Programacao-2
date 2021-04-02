@@ -8,7 +8,8 @@
 #include "Pessoa/Pessoa.hpp"
 using namespace std;
 
-void showData(Pessoa &mercador, Pessoa &heroi);
-void upgradeStatus(Pessoa &mercador, Pessoa &heroi);
-void openStore(Pessoa &mercador, Pessoa &heroi);
+void showData(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList);
+void upgradeStatus(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList);
+void openStore(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList);
+void hunt(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList);
 #endif
