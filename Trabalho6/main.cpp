@@ -51,7 +51,7 @@ int main()
             cout << "Escolha" << endl;
 
         cin >> choice;
-        if (atoi(choice.c_str()) > 5)
+        if (atoi(choice.c_str()) > 5 || atoi(choice.c_str()) < 1)
             continue;
         if (choice == "5")
             break;

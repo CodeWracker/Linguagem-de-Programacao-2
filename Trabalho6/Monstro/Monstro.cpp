@@ -15,7 +15,8 @@ Monstro::Monstro(string raca, string drop, int val, int xp, int lvl)
     _xpDrop = xp;
     _stats.setCon(_stats.getCon() * lvl);
     _stats.setFor(_stats.getFor() * lvl);
-    _stats.setDex(_stats.getDex() * lvl);
+    _hp += 3 * lvl;
+    _sp += 3 * lvl;
 }
 Monstro::~Monstro()
 {

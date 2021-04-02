@@ -59,73 +59,12 @@ public:
             _pontos += 3;
         }
     }
-    bool equipar(size_t n)
+    bool equipar(size_t n);
+
+    size_t getNivel()
     {
-
-        if (NDEBUG)
-            cout << "equipando" << endl;
-        if (n < 0 || n >= _mochila.size())
-            return false;
-        GenericItem *i = pop_bag(n);
-
-        if (NDEBUG)
-            cout << i->getTipo() << endl;
-        if (i->getTipo() == t_Item)
-        {
-            push_bag(i);
-            return false;
-        }
-
-        if (i->getTipo() == t_Consumivel)
-        {
-            Consumivel *it = (Consumivel *)i->getPointer();
-            if (it->getAcao() == "HP")
-            {
-                if (!_hp.isMax())
-                {
-                    _hp + it->getAtr();
-                    delete i;
-                }
-                else
-                    push_bag(i);
-            }
-        }
-        if (i->getTipo() == t_Arma)
-        {
-            GenericItem *rem = new GenericItem(_armaEquipada);
-            if (_armaEquipada->getValue() != 0)
-            {
-                push_bag(rem);
-                //delete i;
-            }
-            else
-            {
-                delete rem;
-            }
-            _armaEquipada = new Arma(*(Arma *)i->getPointer());
-            delete i;
-            return true;
-        }
-        if (i->getTipo() == t_Armadura)
-        {
-
-            if (NDEBUG)
-                cout << "colocarndo armor" << endl;
-            GenericItem *rem = new GenericItem(_armaduraEquipada);
-            if (_armaduraEquipada->getValue() != 0)
-            {
-                push_bag(rem);
-                // delete i;
-            }
-            else
-                delete rem;
-            _armaduraEquipada = new Armadura(*(Armadura *)i->getPointer());
-            delete i;
-            return true;
-        }
-        return true;
+        return _nivel;
     }
-    size_t getNivel() { return _nivel; }
 };
 
 #endif

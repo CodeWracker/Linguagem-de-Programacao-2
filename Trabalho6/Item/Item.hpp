@@ -1,6 +1,6 @@
 #ifndef ITEM_HPP
 #define ITEM_HPP
-#define NDEBUG 0
+#define NDEBUG 1
 #include <iostream>
 #include <sstream>
 using namespace std;
