@@ -1,12 +1,13 @@
 #include "./Pessoa.hpp"
 
-Pessoa::Pessoa(/* args */)
+Pessoa::Pessoa()
 {
     _pontos = 3;
     _nivel = 1;
     _nome = "NONAME";
     _armaEquipada = new Arma();
     _armaduraEquipada = new Armadura();
+    _xp = 0;
 }
 Pessoa::Pessoa(string nome, size_t dinheiro)
 {
@@ -16,6 +17,7 @@ Pessoa::Pessoa(string nome, size_t dinheiro)
     _nivel = 1;
     _armaEquipada = new Arma();
     _armaduraEquipada = new Armadura();
+    _xp = 0;
 }
 Pessoa::~Pessoa()
 {

@@ -32,30 +32,47 @@ bool loadData(vector<string> &dataList, string path)
     }
     return true;
 }
-void getMonsterData(vector<string> &dataList, vector<Monstro *> &monsterList)
+Monstro *createMonster(vector<vector<string>> monsterData, size_t nivel)
+{
+    int i = 0;
+
+    vector<string>
+        splitL = monsterData.at(i);
+    Monstro *m = new Monstro(splitL.at(0), splitL.at(1), atoi(splitL.at(2).c_str()), atoi(splitL.at(3).c_str()), nivel);
+    i++;
+
+    splitL = monsterData.at(i);
+    int val = atoi(splitL.at(1).c_str());
+    int atk = atoi(splitL.at(2).c_str());
+    Arma *arma = new Arma(val, splitL.at(0), atk);
+    m->equipar(arma);
+
+    i++;
+    splitL = monsterData.at(i);
+    val = atoi(splitL.at(1).c_str());
+    int def = atoi(splitL.at(2).c_str());
+    Armadura *armd = new Armadura(val, splitL.at(0), def);
+    m->equipar(armd);
+    return m;
+}
+void getMonsterData(vector<string> &dataList, vector<vector<vector<string>>> &monsterList)
 {
     for (size_t i = 0; i < dataList.size(); i++)
     {
+        vector<vector<string>> aux;
         vector<string> splitL = splitString(dataList.at(i), ',');
+        aux.push_back(splitL);
         if (splitL.at(0) == "Raça")
             continue;
         if (splitL.size() == 4)
         {
-            Monstro *m = new Monstro(splitL.at(0), splitL.at(1), atoi(splitL.at(2).c_str()), atoi(splitL.at(3).c_str()));
-            i++;
-            splitL = splitString(dataList.at(i), ',');
-            int val = atoi(splitL.at(1).c_str());
-            int atk = atoi(splitL.at(2).c_str());
-            Arma *arma = new Arma(val, splitL.at(0), atk);
-            m->equipar(arma);
+            splitString(dataList.at(i), ',');
+            aux.push_back(splitL);
 
-            i++;
             splitL = splitString(dataList.at(i), ',');
-            val = atoi(splitL.at(1).c_str());
-            int def = atoi(splitL.at(2).c_str());
-            Armadura *armd = new Armadura(val, splitL.at(0), def);
-            m->equipar(armd);
-            monsterList.push_back(m);
+            aux.push_back(splitL);
+
+            monsterList.push_back(aux);
         }
     }
 }

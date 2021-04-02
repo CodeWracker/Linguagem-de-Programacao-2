@@ -94,10 +94,17 @@ public:
         {
             GenericItem *rem = new GenericItem(_armaEquipada);
             if (_armaEquipada->getValue() != 0)
+            {
                 push_bag(rem);
+                //delete i;
+            }
             else
-                delete _armaEquipada;
-            _armaEquipada = (Arma *)i->getPointer();
+            {
+                delete rem;
+            }
+            _armaEquipada = new Arma(*(Arma *)i->getPointer());
+            delete i;
+            return true;
         }
         if (i->getTipo() == t_Armadura)
         {
@@ -106,13 +113,19 @@ public:
                 cout << "colocarndo armor" << endl;
             GenericItem *rem = new GenericItem(_armaduraEquipada);
             if (_armaduraEquipada->getValue() != 0)
+            {
                 push_bag(rem);
+                // delete i;
+            }
             else
-                delete _armaduraEquipada;
-            _armaduraEquipada = (Armadura *)i->getPointer();
+                delete rem;
+            _armaduraEquipada = new Armadura(*(Armadura *)i->getPointer());
+            delete i;
+            return true;
         }
         return true;
     }
+    size_t getNivel() { return _nivel; }
 };
 
 #endif

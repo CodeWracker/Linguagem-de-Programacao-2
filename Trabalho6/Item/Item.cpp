@@ -1,6 +1,6 @@
 #include "./Item.hpp"
 
-Item::Item(/* args */)
+Item::Item()
 {
     _nome = ("NONAME");
     _valor = 1;

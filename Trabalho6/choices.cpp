@@ -1,13 +1,14 @@
 #include "choices.hpp"
-
-void showData(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
+#include "Utils.hpp"
+void showData(Pessoa &mercador, Pessoa &heroi, vector<vector<vector<string>>> &monsterList)
 {
     if (NDEBUG)
         system("clear");
     while (1)
     {
 
-        cout << heroi.str() << endl;
+        if (NDEBUG)
+            cout << heroi.str() << endl;
 
         if (NDEBUG)
             cout << "Deseja equipar algum item? (S/N)" << endl;
@@ -28,7 +29,7 @@ void showData(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
         }
     }
 }
-void upgradeStatus(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
+void upgradeStatus(Pessoa &mercador, Pessoa &heroi, vector<vector<vector<string>>> &monsterList)
 {
     if (NDEBUG)
         system("clear");
@@ -125,7 +126,7 @@ bool storeTransaction(Pessoa &comprador, Pessoa &vendedor)
     }
     return true;
 }
-void openStore(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
+void openStore(Pessoa &mercador, Pessoa &heroi, vector<vector<vector<string>>> &monsterList)
 {
     if (NDEBUG)
         system("clear");
@@ -162,18 +163,19 @@ void openStore(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
         }
     }
 }
-void hunt(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
+void hunt(Pessoa &mercador, Pessoa &heroi, vector<vector<vector<string>>> &monsterList)
 {
+
     int num = rand() % (monsterList.size());
-    Monstro m = *monsterList.at(num);
+    Monstro *m = createMonster(monsterList.at(num), heroi.getNivel());
 
     if (NDEBUG)
         cout << "Não se esqueça que cansaço mata" << endl;
-    while (m.isAlive() && heroi.isAlive())
+    while (m->isAlive() && heroi.isAlive())
     {
 
         if (NDEBUG)
-            cout << m.str() << endl;
+            cout << m->str() << endl;
 
         if (NDEBUG)
             cout << "0 - Atacar" << endl;
@@ -188,7 +190,7 @@ void hunt(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
         cin >> c;
         if (c == "0")
         {
-            if (heroi.atacar(&m))
+            if (heroi.atacar(m))
 
                 if (NDEBUG)
                     cout << "Voce acertou o Golpe!" << endl;
@@ -200,7 +202,7 @@ void hunt(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
         }
         if (c == "1")
         {
-            if (heroi.fugir(&m))
+            if (heroi.fugir(m))
             {
 
                 if (NDEBUG)
@@ -212,7 +214,7 @@ void hunt(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
 
                 if (NDEBUG)
                     cout << "Voce nao conseguiu fugir e ele te atacou!" << endl;
-                if (!m.atacar(&heroi))
+                if (!m->atacar(&heroi))
                 {
 
                     if (NDEBUG)
@@ -221,12 +223,12 @@ void hunt(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
                 }
             }
         }
-        if (aux && m.isAlive())
+        if (aux && m->isAlive())
         {
 
             if (NDEBUG)
                 cout << "Vez do bixo!!" << endl;
-            if (m.atacar(&heroi))
+            if (m->atacar(&heroi))
 
             {
                 if (NDEBUG)
@@ -239,12 +241,15 @@ void hunt(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
             }
         }
     }
-    if (!m.isAlive())
+    if (NDEBUG)
+        system("clear");
+    if (!m->isAlive())
     {
 
         if (NDEBUG)
             cout << "Voce matou ele!" << endl;
-        heroi.push_bag(new GenericItem(m.getDrop()));
-        heroi + m.getXp();
+        heroi.push_bag(new GenericItem(m->getDrop()));
+        heroi + m->getXp();
     }
+    delete m;
 }

@@ -12,7 +12,7 @@ protected:
 
 public:
     Monstro();
-    Monstro(string raca, string drop, int val, int xp);
+    Monstro(string raca, string drop, int val, int xp, int lvl);
     ~Monstro();
 
 public:

@@ -4,7 +4,7 @@
 #include "choices.hpp"
 int main()
 {
-    vector<Monstro *> monsterList;
+    vector<vector<vector<string>>> monsterList;
     vector<string> data;
     loadData(data, "monstros.txt");
     getMonsterData(data, monsterList);
@@ -12,7 +12,7 @@ int main()
     Pessoa mercador("Mercador", 50000);
     getItemsData(data, mercador);
 
-    typedef void (*funcP)(Pessoa & mercador, Pessoa & heroi, vector<Monstro *> & monsterList);
+    typedef void (*funcP)(Pessoa & mercador, Pessoa & heroi, vector<vector<vector<string>>> & monsterList);
     map<string, funcP> myMap;
     myMap["1"] = upgradeStatus;
     myMap["2"] = openStore;

@@ -1,11 +1,19 @@
 
 #include "./GenericItem.hpp"
-GenericItem::GenericItem(/* args */)
+GenericItem::GenericItem()
 {
 }
 
 GenericItem::~GenericItem()
 {
+    if (_tipo == t_Item)
+        delete ((Item *)_item);
+    if (_tipo == t_Arma)
+        delete ((Arma *)_item);
+    if (_tipo == t_Armadura)
+        delete ((Armadura *)_item);
+    if (_tipo == t_Consumivel)
+        delete ((Consumivel *)_item);
 }
 GenericItem::GenericItem(Item *i)
 {
