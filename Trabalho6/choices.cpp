@@ -2,13 +2,15 @@
 
 void showData(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
 {
-    system("clear");
+    if (NDEBUG)
+        system("clear");
     while (1)
     {
 
         cout << heroi.str() << endl;
 
-        cout << "Deseja equipar algum item? (S/N)" << endl;
+        if (NDEBUG)
+            cout << "Deseja equipar algum item? (S/N)" << endl;
         string choice;
         cin >> choice;
         if (choice == "n" || choice == "N")
@@ -16,43 +18,54 @@ void showData(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
         if (choice == "s" || choice == "S")
         {
 
-            cout << "Que item quer Equipar ou usar?" << endl;
+            if (NDEBUG)
+                cout << "Que item quer Equipar ou usar?" << endl;
             cin >> choice;
             int c = atoi(choice.c_str());
-            system("clear");
+            if (NDEBUG)
+                system("clear");
             heroi.equipar(c);
         }
     }
 }
 void upgradeStatus(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
 {
-    system("clear");
+    if (NDEBUG)
+        system("clear");
     while (1)
     {
 
-        cout << "Seus Atributos: " << heroi.showStats() << endl;
+        if (NDEBUG)
+            cout << "Seus Atributos: " << heroi.showStats() << endl;
         if (heroi.getPontos() > 0)
         {
 
-            cout << "Pontos Disponiveis: " << heroi.getPontos() << endl;
+            if (NDEBUG)
+                cout << "Pontos Disponiveis: " << heroi.getPontos() << endl;
             string choice1;
             string choice2;
             string atr;
 
-            cout << "Adicionar Pontos em:" << endl;
+            if (NDEBUG)
+                cout << "Adicionar Pontos em:" << endl;
 
-            cout << "1 - FOR" << endl;
+            if (NDEBUG)
+                cout << "1 - FOR" << endl;
 
-            cout << "2 - CON" << endl;
+            if (NDEBUG)
+                cout << "2 - CON" << endl;
 
-            cout << "3 - DEX" << endl;
+            if (NDEBUG)
+                cout << "3 - DEX" << endl;
 
-            cout << "4 - Voltar para o Menu" << endl;
+            if (NDEBUG)
+                cout << "4 - Voltar para o Menu" << endl;
             cin >> choice1;
             if (choice1 == "4")
                 break;
 
-            cout << "Quantos pontos deseja adicionar? " << endl;
+            if (NDEBUG)
+                cout << "Quantos pontos deseja adicionar? " << endl;
             cin >> choice2;
             if (choice1 == "1")
                 atr = "for";
@@ -63,12 +76,14 @@ void upgradeStatus(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterLi
 
             if (!heroi.upar(atr, atoi(choice2.c_str())))
 
-                cout << "QUANTIDADE DE PONTOS INVALIDA" << endl;
+                if (NDEBUG)
+                    cout << "QUANTIDADE DE PONTOS INVALIDA" << endl;
         }
         else
         {
 
-            cout << "Você não possui pontos disponiveis, vá caçar!" << endl;
+            if (NDEBUG)
+                cout << "Você não possui pontos disponiveis, vá caçar!" << endl;
             break;
         }
     }
@@ -77,17 +92,22 @@ bool storeTransaction(Pessoa &comprador, Pessoa &vendedor)
 {
     string choice;
 
-    cout << vendedor.bagToStr() << endl;
+    if (NDEBUG)
+        cout << vendedor.bagToStr() << endl;
 
-    cout << "Escolha o item (PARA VOLTAR DIGITE B)" << endl;
+    if (NDEBUG)
+        cout << "Escolha o item (PARA VOLTAR DIGITE B)" << endl;
     cin >> choice;
-    system("clear");
+    if (NDEBUG)
+        system("clear");
     if (choice == "b" || choice == "B")
         return false;
     GenericItem *i = vendedor.pop_bag(atoi(choice.c_str()));
     if (i == nullptr)
-
-        cout << "Item invalido!" << endl;
+    {
+        if (NDEBUG)
+            cout << "Item invalido!" << endl;
+    }
     else
     {
         if (comprador.gastar(i->getValue()))
@@ -98,7 +118,8 @@ bool storeTransaction(Pessoa &comprador, Pessoa &vendedor)
         else
         {
 
-            cout << "Sem Dinheiro, sem item! Devolve isso ai *****!!" << endl;
+            if (NDEBUG)
+                cout << "Sem Dinheiro, sem item! Devolve isso ai *****!!" << endl;
             vendedor.push_bag(i);
         }
     }
@@ -106,16 +127,20 @@ bool storeTransaction(Pessoa &comprador, Pessoa &vendedor)
 }
 void openStore(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
 {
-    system("clear");
+    if (NDEBUG)
+        system("clear");
     while (1)
     {
 
-        cout << "Você possui " << heroi.getDinheiro() << "PP" << endl;
+        if (NDEBUG)
+            cout << "Você possui " << heroi.getDinheiro() << "PP" << endl;
         string choice;
 
-        cout << "Quer (C)omprar ou (V)ender? (PARA SAIR DIGITE S)" << endl;
+        if (NDEBUG)
+            cout << "Quer (C)omprar ou (V)ender? (PARA SAIR DIGITE S)" << endl;
         cin >> choice;
-        system("clear");
+        if (NDEBUG)
+            system("clear");
         if (choice == "s" || choice == "S")
             break;
 
@@ -142,17 +167,22 @@ void hunt(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
     int num = rand() % (monsterList.size());
     Monstro m = *monsterList.at(num);
 
-    cout << "Não se esqueça que cansaço mata" << endl;
+    if (NDEBUG)
+        cout << "Não se esqueça que cansaço mata" << endl;
     while (m.isAlive() && heroi.isAlive())
     {
 
-        cout << m.str() << endl;
+        if (NDEBUG)
+            cout << m.str() << endl;
 
-        cout << "0 - Atacar" << endl;
+        if (NDEBUG)
+            cout << "0 - Atacar" << endl;
 
-        cout << "1 - Fugir" << endl;
+        if (NDEBUG)
+            cout << "1 - Fugir" << endl;
 
-        cout << "Escolha" << endl;
+        if (NDEBUG)
+            cout << "Escolha" << endl;
         bool aux = true;
         string c;
         cin >> c;
@@ -160,26 +190,33 @@ void hunt(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
         {
             if (heroi.atacar(&m))
 
-                cout << "Voce acertou o Golpe!" << endl;
-            else
-                cout << "Voce errou o Golpe!" << endl;
+                if (NDEBUG)
+                    cout << "Voce acertou o Golpe!" << endl;
+                else
+                {
+                    if (NDEBUG)
+                        cout << "Voce errou o Golpe!" << endl;
+                }
         }
         if (c == "1")
         {
             if (heroi.fugir(&m))
             {
 
-                cout << "Voce conseguiu fugir!" << endl;
+                if (NDEBUG)
+                    cout << "Voce conseguiu fugir!" << endl;
                 break;
             }
             else
             {
 
-                cout << "Voce nao conseguiu fugir e ele te atacou!" << endl;
+                if (NDEBUG)
+                    cout << "Voce nao conseguiu fugir e ele te atacou!" << endl;
                 if (!m.atacar(&heroi))
                 {
 
-                    cout << "ele errou o ataque" << endl;
+                    if (NDEBUG)
+                        cout << "ele errou o ataque" << endl;
                     aux = false;
                 }
             }
@@ -187,18 +224,26 @@ void hunt(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList)
         if (aux && m.isAlive())
         {
 
-            cout << "Vez do bixo!!" << endl;
+            if (NDEBUG)
+                cout << "Vez do bixo!!" << endl;
             if (m.atacar(&heroi))
 
-                cout << "ele acertou o ataque" << endl;
+            {
+                if (NDEBUG)
+                    cout << "ele acertou o ataque" << endl;
+            }
             else
-                cout << "ele errou o ataque" << endl;
+            {
+                if (NDEBUG)
+                    cout << "ele errou o ataque" << endl;
+            }
         }
     }
     if (!m.isAlive())
     {
 
-        cout << "Voce matou ele!" << endl;
+        if (NDEBUG)
+            cout << "Voce matou ele!" << endl;
         heroi.push_bag(new GenericItem(m.getDrop()));
         heroi + m.getXp();
     }

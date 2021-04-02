@@ -6,6 +6,7 @@
 #include <fstream>
 #include "Monstro/Monstro.hpp"
 #include "Pessoa/Pessoa.hpp"
+#include "Item/Item.hpp"
 using namespace std;
 
 void showData(Pessoa &mercador, Pessoa &heroi, vector<Monstro *> &monsterList);
