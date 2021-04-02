@@ -44,7 +44,11 @@ public:
         return ((Item *)_item)->getValue();
     };
     ItemType getTipo() { return _tipo; };
-    void *getPointer() { return _item; }
+    void *getPointer() { return _item; };
+    void operator<<(int q)
+    {
+        *((Item *)_item) << q;
+    }
 };
 
 #endif

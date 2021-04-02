@@ -59,7 +59,7 @@ public:
             _pontos += 3;
         }
     }
-    bool equipar(size_t n);
+    bool operator>>(size_t n);
 
     size_t getNivel()
     {

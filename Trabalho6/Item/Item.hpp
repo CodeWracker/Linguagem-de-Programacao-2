@@ -16,6 +16,13 @@ public:
     ~Item();
 
 public:
+    void operator<<(int q)
+    {
+        if (_valor - q > 0)
+            _valor -= q;
+        else
+            _valor = 1;
+    }
     string str()
     {
         stringstream s;

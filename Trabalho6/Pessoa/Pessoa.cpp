@@ -74,7 +74,7 @@ string Pessoa::bagToStr()
 
     return s.str();
 }
-bool Pessoa::equipar(size_t n)
+bool Pessoa::operator>>(size_t n)
 {
 
     if (NDEBUG)

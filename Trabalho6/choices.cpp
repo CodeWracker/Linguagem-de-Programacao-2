@@ -25,7 +25,7 @@ void showData(Pessoa &mercador, Pessoa &heroi, vector<vector<vector<string>>> &m
             int c = atoi(choice.c_str());
             if (NDEBUG)
                 system("clear");
-            heroi.equipar(c);
+            heroi >> (c);
         }
     }
 }
@@ -115,6 +115,7 @@ bool storeTransaction(Pessoa &comprador, Pessoa &vendedor)
         {
             comprador.push_bag(i);
             vendedor.depositar(i->getValue());
+            *i << (1);
         }
         else
         {
