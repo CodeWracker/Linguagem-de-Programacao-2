@@ -7,6 +7,25 @@
 #include <QMessageBox>
 #include <QTextStream>
 
+vector<string> splitString(string s, char it)
+{
+    string str;
+    vector<string> ret;
+    for (char c : s)
+    {
+        if (c == it)
+        {
+            ret.emplace_back(str);
+            str.clear();
+        }
+        else
+        {
+            str = str + c;
+        }
+    }
+    ret.emplace_back(str);
+    return ret;
+}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -72,4 +91,17 @@ void MainWindow::on_spinBox_valueChanged(int arg1)
     message.setShift(arg1);
     ui->messageTextEdit->setText(QString::fromStdString(message.dencriptMessage()));
     ui->alphaTextEdit->setText(QString::fromStdString(message.getFrequency()));
+}
+
+void MainWindow::on_alphaTextEdit_textChanged()
+{
+    vector<string> t;
+    stringstream s;
+    s <<ui->alphaTextEdit->toPlainText().toStdString();
+    string tmp;
+    while (s>>tmp) {
+        t = splitString(tmp,' ');
+        if(t.size()>0) cout <<t.at(t.size()-1);
+    }
+
 }

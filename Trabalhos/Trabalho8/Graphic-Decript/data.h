@@ -10,7 +10,7 @@ using namespace std;
 class Data
 {
 private:
-    vector<char> _alphabet;
+    vector<size_t> _alphabet;
     stringstream _dataStr;
     vector<pair<size_t,size_t>> _freqList;
     int _shift;
@@ -20,17 +20,16 @@ private:
 
 
 public:
-    void setShift(int s){_shift = s;
-                        shiftAlphabet();}
+    void setShift(int s){_shift = s;}
     bool loadAlphabet(string data);
     void loadMessage(string data);
     string getMessage(){return _dataStr.str();}
     string getFrequency(){
         stringstream s;
         for(size_t i = 0; i<_freqList.size();i++){
-            s<< (char)_freqList.at(i).first<< " - ";
+            s<< i<<": " <<(char)_freqList.at(i).first<< " - ";
             if(i<_alphabet.size()){
-                s<< _alphabet.at(i);
+                s<< (char)(_alphabet.at(i)+_shift);
             }
             s<<endl;
         }
@@ -41,7 +40,6 @@ public:
     void getAlphabetFromMessage();
     bool loadFreqOrig(string path);
     string dencriptMessage();
-    void shiftAlphabet();
 
 public:
     Data();

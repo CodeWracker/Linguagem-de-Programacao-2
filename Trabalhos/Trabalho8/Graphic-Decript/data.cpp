@@ -10,31 +10,28 @@ bool Data::loadFreqOrig(string path){
 
 string Data::dencriptMessage(){
     stringstream returnData;
-    if(_alphabet.size()>0){
+    for (size_t i = 0; i < _freqList.size(); i++)
+    {
+        if (_alphabet.at(i))
+            _freqList.at(i).second = _alphabet.at(i) + _shift;
+        else
+            _freqList.at(i).second = _freqList.at(i).first;
+    }
+
+    for (char ch : _dataStr.str())
+    {
         for (size_t i = 0; i < _freqList.size(); i++)
         {
-            if (i<_alphabet.size())
-                _freqList.at(i).second = _alphabet.at(i);
-            else
-                _freqList.at(i).second = _freqList.at(i).first;
-        }
 
-        for (char ch : _dataStr.str())
-        {
-            for (size_t i = 0; i < _freqList.size(); i++)
+            if ((size_t)ch == (_freqList.at(i).first))
             {
-
-                if ((size_t)ch == (_freqList.at(i).first))
-                {
-                    returnData << (char)_freqList.at(i).second;
-                    break;
-                }
+                returnData << (char)_freqList.at(i).second;
+                break;
             }
         }
-        return returnData.str();
-    }else{
-        return _dataStr.str();
     }
+    return returnData.str();
+
 
 }
 bool Data::loadAlphabet(string data){
@@ -44,10 +41,16 @@ bool Data::loadAlphabet(string data){
 
 
     string tmp;
-    while (getline(s, tmp))
+    int cont = 0;
+    while (s >> tmp)
     {
-        _alphabet.push_back(atoi(tmp.c_str()));
+        int ch = stoi(tmp.c_str());
+        cout << (char)ch<<endl;
+        _alphabet.at(cont) = ch;
+        cont++;
     }
+    cout << endl;
+    for (char a:_alphabet) cout<<(int)a<<endl;
     return true;
 }
 void Data::loadMessage(string data){
@@ -77,17 +80,16 @@ void Data::loadFrequency(){
        if (_freqList.at(i).second == 0)
        {
            _freqList.erase(_freqList.begin() + i, _freqList.end());
+           _alphabet.erase(_alphabet.begin() + i, _alphabet.end());
        }
    }
 }
-void Data::shiftAlphabet(){
-    for(size_t i= 0;i<_alphabet.size();i++){
-        _alphabet.at(i) = _alphabet.at(i) + _shift;
-    }
-}
+
 Data::Data()
 {
     vector<pair<size_t,size_t>> a(256);
     _freqList = a;
+    vector<size_t> b(256);
+    _alphabet = b;
     _shift = 0;
 }

@@ -106,6 +106,7 @@ public:
 
         messageTextEdit = new QTextEdit(widget1);
         messageTextEdit->setObjectName(QString::fromUtf8("messageTextEdit"));
+        messageTextEdit->setReadOnly(true);
 
         verticalLayout_2->addWidget(messageTextEdit);
 

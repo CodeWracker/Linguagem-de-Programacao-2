@@ -72,7 +72,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QTextEdit" name="messageTextEdit"/>
+      <widget class="QTextEdit" name="messageTextEdit">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>

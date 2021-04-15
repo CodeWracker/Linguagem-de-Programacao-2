@@ -25,6 +25,8 @@ private slots:
 
     void on_spinBox_valueChanged(int arg1);
 
+    void on_alphaTextEdit_textChanged();
+
 private:
     Ui::MainWindow *ui;
 };
