@@ -1,4 +1,4 @@
-#include "Encript.hpp"
+//#include "Encript.hpp"
 #include "Decript.hpp"
 #include <stdlib.h>
 

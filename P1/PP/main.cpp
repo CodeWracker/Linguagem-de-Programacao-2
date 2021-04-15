@@ -1,9 +1,9 @@
-#include "EstruturaDeDados.hpp"
 #include <iostream>
-#define NDEBUG 0
+#include "EstruturaDados.hpp"
+#define NDEBUG 1
 int main()
 {
-    EstruturaDeDados *data = new EstruturaDeDados();
+    EstruturaDados *data = new EstruturaDados();
     if (NDEBUG)
     {
         cout << "1. Inserir um número -> Pilha" << endl;
@@ -11,36 +11,26 @@ int main()
         cout << "3. Remover um número -> Pilha" << endl;
         cout << "4. Remover um número -> Fila" << endl;
         cout << "5. Imprimir indice e valor numero" << endl;
-        cout << "6. Inserir um número -> Pilha" << endl;
+        cout << "6. Sair do Sistema" << endl;
     }
     while (1)
     {
 
         string c;
         cin >> c;
-        if (c == "1")
+        if (c == "2" || c == "1")
         {
             if (NDEBUG)
                 cout << "Digite o numero a ser adicionado" << endl;
             cin >> c;
-            Pilha p(data->getVector());
-            p.adicionar(atoi(c.c_str()));
-            *data = p;
-            continue;
-        }
-        if (c == "2")
-        {
-            if (NDEBUG)
-                cout << "Digite o numero a ser adicionado" << endl;
-            cin >> c;
-            Fila f(data->getVector());
-            f.adicionar(atoi(c.c_str()));
-            *data = f;
+
+            data->adicionar(atoi(c.c_str()));
+
             continue;
         }
         if (c == "3")
         {
-            Pilha p(data->getVector());
+            Pilha p(*data);
             p.remover();
             *data = p;
             continue;
@@ -61,7 +51,8 @@ int main()
             }
             continue;
         }
-        break;
+        if (c == "6")
+            break;
     }
     delete data;
     return 0;
