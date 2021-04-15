@@ -54,8 +54,7 @@ void Data::loadMessage(string data){
     _dataStr.str("");
     vector<pair<size_t,size_t>> a(256);
     _freqList = a;
-    vector<size_t> b(256);
-    _alphabet = b;
+
     _dataStr << data;
     loadFrequency();
 }
