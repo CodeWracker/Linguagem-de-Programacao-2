@@ -35,14 +35,20 @@ public:
         }
         return s.str();
     }
+    vector<size_t> getAlpha(){return _alphabet;}
+    void setApha(vector<size_t> al){_alphabet =al;}
 
 public:
     void getAlphabetFromMessage();
     bool loadFreqOrig(string path);
     string dencriptMessage();
+    void addAlpha(size_t pos, size_t ch){
+        if(NDEBUG) cout <<_alphabet.size()<<endl;
+        if(pos<_alphabet.size())_alphabet.at(pos) = ch - _shift;}
 
 public:
     Data();
+
 };
 
 #endif // DATA_H

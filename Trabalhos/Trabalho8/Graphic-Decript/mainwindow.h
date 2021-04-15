@@ -10,10 +10,30 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    Data message;
+    Data *message;
+    bool edit;
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    vector<string> splitString(string s, char it)
+    {
+        string str;
+        vector<string> ret;
+        for (char c : s)
+        {
+            if (c == it)
+            {
+                ret.emplace_back(str);
+                str.clear();
+            }
+            else
+            {
+                str = str + c;
+            }
+        }
+        ret.emplace_back(str);
+        return ret;
+    }
     ~MainWindow();
 
 private slots:
@@ -25,7 +45,7 @@ private slots:
 
     void on_spinBox_valueChanged(int arg1);
 
-    void on_alphaTextEdit_textChanged();
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

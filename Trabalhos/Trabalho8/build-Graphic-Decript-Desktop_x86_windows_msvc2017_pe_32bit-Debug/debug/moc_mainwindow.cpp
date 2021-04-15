@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[8];
-    char stringdata0[163];
+    char stringdata0[156];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,14 +38,14 @@ QT_MOC_LITERAL(3, 37, 38), // "on_actionOpen_encripted_data_..."
 QT_MOC_LITERAL(4, 76, 28), // "on_actionOpen_tips_triggered"
 QT_MOC_LITERAL(5, 105, 23), // "on_spinBox_valueChanged"
 QT_MOC_LITERAL(6, 129, 4), // "arg1"
-QT_MOC_LITERAL(7, 134, 28) // "on_alphaTextEdit_textChanged"
+QT_MOC_LITERAL(7, 134, 21) // "on_pushButton_clicked"
 
     },
     "MainWindow\0on_actionAbout_triggered\0"
     "\0on_actionOpen_encripted_data_triggered\0"
     "on_actionOpen_tips_triggered\0"
     "on_spinBox_valueChanged\0arg1\0"
-    "on_alphaTextEdit_textChanged"
+    "on_pushButton_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -89,7 +89,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->on_actionOpen_encripted_data_triggered(); break;
         case 2: _t->on_actionOpen_tips_triggered(); break;
         case 3: _t->on_spinBox_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 4: _t->on_alphaTextEdit_textChanged(); break;
+        case 4: _t->on_pushButton_clicked(); break;
         default: ;
         }
     }

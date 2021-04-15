@@ -32,7 +32,18 @@
       </widget>
      </item>
      <item>
-      <widget class="QTextEdit" name="alphaTextEdit"/>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Atualizar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextEdit" name="alphaTextEdit">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">

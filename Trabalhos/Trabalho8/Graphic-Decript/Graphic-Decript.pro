@@ -10,17 +10,20 @@ CONFIG += c++11
 
 SOURCES += \
     about.cpp \
+    changealpha.cpp \
     data.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     about.h \
+    changealpha.h \
     data.h \
     mainwindow.h
 
 FORMS += \
     about.ui \
+    changealpha.ui \
     mainwindow.ui
 
 # Default rules for deployment.

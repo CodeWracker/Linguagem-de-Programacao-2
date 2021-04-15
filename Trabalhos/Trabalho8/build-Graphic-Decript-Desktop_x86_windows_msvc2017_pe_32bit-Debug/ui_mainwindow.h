@@ -17,6 +17,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
@@ -35,6 +36,7 @@ public:
     QWidget *widget;
     QVBoxLayout *verticalLayout;
     QLabel *alphaLabel;
+    QPushButton *pushButton;
     QTextEdit *alphaTextEdit;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
@@ -72,8 +74,14 @@ public:
 
         verticalLayout->addWidget(alphaLabel);
 
+        pushButton = new QPushButton(widget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        verticalLayout->addWidget(pushButton);
+
         alphaTextEdit = new QTextEdit(widget);
         alphaTextEdit->setObjectName(QString::fromUtf8("alphaTextEdit"));
+        alphaTextEdit->setReadOnly(true);
 
         verticalLayout->addWidget(alphaTextEdit);
 
@@ -141,6 +149,7 @@ public:
         actionOpen_encripted_data->setText(QApplication::translate("MainWindow", "Open encripted data", nullptr));
         actionAbout->setText(QApplication::translate("MainWindow", "About", nullptr));
         alphaLabel->setText(QApplication::translate("MainWindow", "Alphabet", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "Atualizar", nullptr));
         label->setText(QApplication::translate("MainWindow", "Shift:", nullptr));
         messageLabel->setText(QApplication::translate("MainWindow", "Message", nullptr));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", nullptr));

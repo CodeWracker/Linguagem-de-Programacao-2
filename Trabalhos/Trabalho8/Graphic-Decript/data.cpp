@@ -45,16 +45,17 @@ bool Data::loadAlphabet(string data){
     while (s >> tmp)
     {
         int ch = stoi(tmp.c_str());
-        cout << (char)ch<<endl;
         _alphabet.at(cont) = ch;
         cont++;
     }
-    cout << endl;
-    for (char a:_alphabet) cout<<(int)a<<endl;
     return true;
 }
 void Data::loadMessage(string data){
-
+    _dataStr.str("");
+    vector<pair<size_t,size_t>> a(256);
+    _freqList = a;
+    vector<size_t> b(256);
+    _alphabet = b;
     _dataStr << data;
     loadFrequency();
 }
