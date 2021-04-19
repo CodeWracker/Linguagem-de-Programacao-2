@@ -1,0 +1,27 @@
+Definições do T8-2
+Jogo: Snake com inimigos
+Score?: 1 Ponto pro Boss derrotado e 0.1 pra cada inimigo normal
+
+Boss aparece a cada 3 inimigos normais derrotados
+
+A grid do jogo vai ser 20x20
+MOrre se bater na parede
+40 jogadas sem comer morre de fome
+
+Classes:
+
+	Manu: MainWindow = Menu
+	Manu: Player = Guarda as esatatisticas
+	Manu: GameOverWindow
+	Ralph: GameEnv = Ambiente do Jogo, onde vai mostrar as coisas(Essa é a parte do Tut6)
+	Ralph: Agent = Jogador que tem uma função move (Classe player do tutorial)
+	
+
+Menu - Player
+	-> GameEnv() - Agent, Agent
+	-> GameOver()
+	
+Class Player():
+	_score = 13
+	_inimigos_normais
+	_boss
