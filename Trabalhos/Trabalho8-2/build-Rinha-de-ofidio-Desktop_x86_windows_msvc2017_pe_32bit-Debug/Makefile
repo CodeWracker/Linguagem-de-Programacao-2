@@ -243,6 +243,7 @@ Makefile: ..\Rinha-de-ofidio\Rinha-de-ofidio.pro D:\Qt\Qt5.12.10\5.12.10\msvc201
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\qt_config.prf \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\win32-msvc\qmake.conf \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\spec_post.prf \
+		.qmake.stash \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\exclusive_builds.prf \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\common\msvc-version.conf \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\toolchain.prf \
@@ -267,8 +268,10 @@ Makefile: ..\Rinha-de-ofidio\Rinha-de-ofidio.pro D:\Qt\Qt5.12.10\5.12.10\msvc201
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\yacc.prf \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\lex.prf \
 		..\Rinha-de-ofidio\Rinha-de-ofidio.pro \
+		D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\Qt5Multimedia.prl \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\Qt5Widgets.prl \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\Qt5Gui.prl \
+		D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\Qt5Network.prl \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\Qt5Core.prl \
 		D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\qtmain.prl
 	$(QMAKE) -o Makefile ..\Rinha-de-ofidio\Rinha-de-ofidio.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -438,6 +441,7 @@ D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\qt_functions.prf:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\qt_config.prf:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\win32-msvc\qmake.conf:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\spec_post.prf:
+.qmake.stash:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\exclusive_builds.prf:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\common\msvc-version.conf:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\toolchain.prf:
@@ -462,8 +466,10 @@ D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\exceptions.prf:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\yacc.prf:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\mkspecs\features\lex.prf:
 ..\Rinha-de-ofidio\Rinha-de-ofidio.pro:
+D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\Qt5Multimedia.prl:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\Qt5Widgets.prl:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\Qt5Gui.prl:
+D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\Qt5Network.prl:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\Qt5Core.prl:
 D:\Qt\Qt5.12.10\5.12.10\msvc2017\lib\qtmain.prl:
 qmake: FORCE

@@ -19,11 +19,12 @@ Menu()
          i = 13
 }
 
-void agentNormal(jogador, estado){
-    //verifica o estado e toma a decisão
-    decisao = "Left" jogador.move(decisao)
-
-} Game::GameEnv(QWidget *parent)
+void agentNormal(jogador, estado)
+{
+     //verifica o estado e toma a decisão
+     decisao = "Left" jogador.move(decisao);
+}
+Game::GameEnv(QWidget *parent)
 {
      // criar scene
      scene = new QGraphicsScene();
