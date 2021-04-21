@@ -1,7 +1,9 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include "about.hpp"
 #include <QMainWindow>
+#include <QMovie>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Menu; }
@@ -14,6 +16,13 @@ class Menu : public QMainWindow
 public:
     Menu(QWidget *parent = nullptr);
     ~Menu();
+
+private slots:
+    void on_StartButton_clicked();
+
+    void on_AboutButton_clicked();
+
+    void on_QuitButton_clicked();
 
 private:
     Ui::Menu *ui;
