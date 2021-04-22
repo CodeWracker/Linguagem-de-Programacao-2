@@ -1,0 +1,10 @@
+debug/bodypart.o
+debug/food.o
+debug/gameenv.o
+debug/main.o
+debug/menu.o
+debug/snake.o
+debug/qrc_images.o
+debug/moc_bodypart.o
+debug/moc_menu.o
+debug/moc_snake.o

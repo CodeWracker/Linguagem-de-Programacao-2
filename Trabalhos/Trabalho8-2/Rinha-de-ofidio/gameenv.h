@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 #include "snake.h"
-
+#include "food.h"
 #include <QGraphicsView>
 #include <QWidget>
 #include <QGraphicsScene>
@@ -13,7 +13,7 @@ class Estado{
 public:
     Estado(){};
     ~Estado(){}
-    int food[2];
+    vector<Food*> food;
 
 };
 
@@ -35,8 +35,12 @@ public:
      int rodada;
      QTimer *timer;
      bool ready;
+     void refresh();
+     void keyPressEvent(QKeyEvent *event);
     void mousePressEvent(QMouseEvent *event){
+        if(ready) player->addNew();
         ready = true;
+
     }
      /*int state = {
                "Food" : [ 0, 1 ];
@@ -44,6 +48,9 @@ public:
                 "Enemy" : [ [ 0, 0 ], [ 1, 0 ] ]
             }*/
 public :
+    void movePlayer(string a){
+        player->move();
+    }
      void agent(Estado estado,string inimigo){
          if(ready){
              if(inimigo == "Nomal"){

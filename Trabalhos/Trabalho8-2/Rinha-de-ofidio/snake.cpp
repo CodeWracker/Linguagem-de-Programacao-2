@@ -4,15 +4,36 @@
 #include <QGraphicsItem>
 #include <QDebug>
 #include <QKeyEvent>
+#include <stdlib.h>
+#include <iostream>
+#include <QPointF >
+using namespace std;
 //#include "bullet.h"
 //#include "enemy.h"
 
-Snake::Snake(QGraphicsItem *parent) : QGraphicsRectItem(parent)
+#include "food.h"
+Snake::Snake(){{}}
+Snake::Snake(string t)
 {
-    //setPixmap(QPixmap("://images/player.png"));
+    tipo = t;
+    //
     isVivo = true;
     ready = false;
-    lastMove = "Left";
+    BodyPart * p = new BodyPart();
+    p->lastAction = "Left";
+    QString image;
+    if(tipo == "normal")
+        image = "://images/NormalLeft.png";
+    if(tipo == "boss")
+        image = "://images/BossLeft.png";
+    else
+        image = "://images/PlayerLeft.png";
+     p->setPixmap(QPixmap( image  ) );
+     p->setPos(floor(32 * (rand()%20)) , floor(32 * (rand()%20)));
+     myBody.push_back(p);
+
+
+
     /*
     bulletsound = new QMediaPlayer();
     bulletsound->setMedia(QUrl("qrc:/sounds/Laser.mp3"));*/
@@ -24,68 +45,56 @@ void Snake::die(){
 void Snake::move(string decisao)
 {
     if(!ready) return;
-    lastMove = decisao;
- //cout << pos().x()<<" // "<<pos().y()<<endl;
-    if (decisao == "Left")
-     {
-     // limite para não sair da tela
-         if(pos().x()-10 > 32)
-            setPos(x()-10,y());
-         else{
-             setPos(32,y());
-             die();
-         }
-      }
-     if (decisao == "Right")
-     {
-     // limite para não sair da tela
-         if(pos().x() + 10 < (800-32) )
-            setPos(x()+10,y());
-         else{
-             setPos((800-32),y());
-             die();
-         }
-     }
-     if (decisao == "Up")
-     {
-         if(pos().y()-10>32)
-            setPos(x(),y()-10);
-         else{
-             setPos(x(),32);
-             die();
-         }
-     }
-      if (decisao == "Down")
-     {
-          if(pos().y()+10<(600-32))
-            setPos(x(),y()+10);
-          else{
-              setPos(x(),(600-32));
-              die();
-          }
-     }
+    vector<string> ant;
+    isVivo = myBody.at(0)->move(decisao);
+    for (BodyPart* part: myBody){
+        cout << part->pos().x() << ";" <<part->pos().y()<<"("<<part->lastAction<<")" << " - ";
+    }
+    cout << endl;
+    for (size_t i = myBody.size()-1; i>0;i--){
+          myBody.at(i)->setPos(myBody.at(i-1)->pos());
+
+        }
+    myBody.at(0)->lastAction = decisao;
+
+    QList<QGraphicsItem *> colliding_item = myBody.at(0)->collidingItems();
+    for(int i = 0, n = colliding_item.size(); i < n; i++){
+        if(typeid(*(colliding_item[i])) == typeid(BodyPart)){
+            bool achou = true;
+            for (BodyPart* part: myBody){
+                if(part == colliding_item[i]){
+                    achou = false;
+                }
+            }
+            if(achou)
+                die();
+
+            }
+
+        }
 
 
 
 }
-void Snake::keyPressEvent(QKeyEvent *event)
-{
-    if (event->key() == Qt::Key_Left)
-    {
-        // limite para não sair da tela
-        this->move("Left");
-    }
-    else if (event->key() == Qt::Key_Right)
-    {
-        // limite para não sair da tela
-        this->move("Right");
-    }
-    else if (event->key() == Qt::Key_Up)
-    {
-        this->move("Up");
-    }
-    else if (event->key() == Qt::Key_Down)
-    {
-        this->move("Down");
-    }
+void Snake::addNew(){
+    string lastA = myBody.at(myBody.size()-1)->lastAction;
+    QPointF lastP = myBody.at(myBody.size()-1)->pos();
+    BodyPart* p = new BodyPart();
+   QString image;
+   if(tipo == "normal")
+       image = "://images/NormalBody.png";
+   if(tipo == "boss")
+       image = "://images/BossBody.png";
+   else
+       image = "://images/PlayerBody.png";
+    p->setPixmap(QPixmap( image  ) );
+    //p->setRect(0,0,32,32);
+    p->setPos(lastP);
+    p->lastAction = lastA;
+    p->setFlag(QGraphicsItem::ItemIsFocusable);
+    p->setFocus();
+    myBody.push_back(p);
+
+
 }
+

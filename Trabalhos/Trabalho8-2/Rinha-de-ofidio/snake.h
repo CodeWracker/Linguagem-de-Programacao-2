@@ -1,36 +1,43 @@
 #ifndef SNAKE_H
 #define SNAKE_H
-
-//#include <QGraphicsRectItem>
 #include <QGraphicsPixmapItem>
-#include <QObject>
-#include <QGraphicsItem>
-#include <QMediaPlayer>
-
-#include <iostream>
-
+#include <math.h>
+#include "bodypart.h"
 using namespace std;
-class Snake : public QObject, public QGraphicsRectItem
+
+
+class Snake: public QObject
 {
-    Q_OBJECT
 
 
+Q_OBJECT
 private:
     QMediaPlayer *bulletsound;
-    string lastMove;
+    string tipo;
+
 public:
+    vector<BodyPart* > myBody;
     void reset(){
         isVivo = true;
+        ready = false;
+
     }
     bool isVivo;
-    Snake(QGraphicsItem *parent = 0);
-    void keyPressEvent(QKeyEvent *event);
+    Snake();
+    Snake(string t);
+
     void move(string decisao);
     void die();
     bool ready;
+    void addNew();
+    ~Snake(){
+        for(size_t i =0;i <myBody.size();i++){
+            delete myBody.at(i);}
+    }
 public slots:
     void move(){
-        move(lastMove);
+        if(!ready) return;
+        move(myBody.at(0)->lastAction);
     };
 
 };

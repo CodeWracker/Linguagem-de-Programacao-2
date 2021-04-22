@@ -1,0 +1,10 @@
+release/bodypart.o
+release/food.o
+release/gameenv.o
+release/main.o
+release/menu.o
+release/snake.o
+release/qrc_images.o
+release/moc_bodypart.o
+release/moc_menu.o
+release/moc_snake.o
