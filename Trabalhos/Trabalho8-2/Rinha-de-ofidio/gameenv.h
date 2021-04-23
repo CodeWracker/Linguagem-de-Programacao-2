@@ -6,6 +6,7 @@
 #include <QWidget>
 #include <QGraphicsScene>
 #include <QString>
+#include <QTimer>
 #include <QMediaPlayer>
 #include <iostream>
 using namespace std;
@@ -22,6 +23,7 @@ class GameEnv: public QGraphicsView
 {
 private:
     QMediaPlayer * musicBg ;
+    QGraphicsPixmapItem* startBg;
 public:
     GameEnv(QWidget *parent = 0);
      QGraphicsScene *scene;
@@ -29,7 +31,7 @@ public:
 public:
      void gameExecution();
      void gameExecution(int r);
-     void newGame(string a);
+     void newGame();
      Snake *player;
      Snake *enemy;
      Estado state;
@@ -40,13 +42,25 @@ public:
      bool ready;
      void refresh();
      void keyPressEvent(QKeyEvent *event);
+     void closeEvent(QCloseEvent *event){
+         ready = false;
+         timer->stop();
+         delete player;
+         delete enemy;
+         for(int i=0; i<scene->items().size(); i++){
+             scene->items().at(i)->setEnabled(false);
+         }
+         delete musicBg;
+         hide();
+         return;
+     }
     void mousePressEvent(QMouseEvent *event){
         //if(ready) player->addNew();
         if(!ready){
             QMediaPlayer * music = new QMediaPlayer(this);
              music->setMedia(QUrl("qrc:/GameStart.wav"));
              music->play();
-
+            delete startBg;
             ready = true;
         }
 
@@ -57,11 +71,11 @@ public:
                 "Enemy" : [ [ 0, 0 ], [ 1, 0 ] ]
             }*/
 public :
-    void movePlayer(string a){
+    void movePlayer(){
 
         player->move();
     }
-     void agent(Estado estado,QString inimigo){
+     void agent(){
          cout << inimigoAgent.toStdString()<<endl;
          if(ready){
 

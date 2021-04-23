@@ -51,37 +51,50 @@ GameEnv::GameEnv(QWidget *parent)
     timer = new QTimer();
     clean();
     musicBg = new QMediaPlayer(this);
-    scene->setBackgroundBrush(QBrush(QImage("://images/GameBackground.png")));
+    scene->setBackgroundBrush(QBrush(QImage(":/images/GameBackground.png")));
+
     player = new Snake();
     enemy = new Snake();
     rodada = 0;
     tipo = { "Normal", "Normal", "Boss" };
     state.food.push_back(new Food());
     state.food.push_back(new Food());
-    connect(timer, &QTimer::timeout, this, std::bind(&GameEnv::movePlayer,this,""));
-    connect(timer, &QTimer::timeout, this, std::bind(&GameEnv::newGame,this,""));
-    connect(timer, &QTimer::timeout, this, std::bind(&GameEnv::agent,this,state,inimigoAgent));
+    connect(timer, &QTimer::timeout, this, std::bind(&GameEnv::movePlayer,this));
+    connect(timer, &QTimer::timeout, this, std::bind(&GameEnv::newGame,this));
+    connect(timer, &QTimer::timeout, this, std::bind(&GameEnv::agent,this));
 }
-void GameEnv::newGame(string a){
+void GameEnv::newGame(){
     player->ready = ready;
     enemy->ready = ready;
     refresh();
-    if((player->isVivo && !enemy->isVivo))
+    if((player->isVivo && !enemy->isVivo) || player->myBody.size() >= 30)
     {
+        delete player;
+        delete enemy;
+        delete musicBg;
         cout << "Novo Jogo"<<endl;
         QMediaPlayer * music = new QMediaPlayer(this);
         music->setMedia(QUrl("qrc:/GameWin.wav"));
         music->play();
         rodada++;
         gameExecution(rodada);
+
         return;
     }
-    if(!player->isVivo) {
+    if(!player->isVivo|| enemy->myBody.size() >= 30) {
         ready = false;
         QMediaPlayer * music = new QMediaPlayer(this);
         music->setMedia(QUrl("qrc:/GameOver.wav"));
         music->play();
         timer->stop();
+        delete player;
+        delete enemy;
+        for(size_t i=0; i<scene->items().size(); i++){
+            scene->items().at(i)->setEnabled(false);
+        }
+
+
+        delete musicBg;
         hide();
         return;
     }
@@ -90,15 +103,17 @@ void GameEnv::newGame(string a){
         for(int i = 0; i< colliding_item.size(); i++){
             if(typeid (*(colliding_item[i])) == typeid(BodyPart)){
                 delete state.food.at(j);
-                QMediaPlayer * music = new QMediaPlayer(this);
-                music->setMedia(QUrl("qrc:/Eat.wav"));
-                music->play();
+
                 state.food.at(j) = new Food();
                 bool achou = false;
                 for(BodyPart* part : player->myBody){
                     if(part == colliding_item[i]) achou = true;
                 }
-                if(achou) player->addNew();
+                if(achou) {
+                    QMediaPlayer * music = new QMediaPlayer(this);
+                    music->setMedia(QUrl("qrc:/Eat.wav"));
+                    music->play();
+                    player->addNew();}
                 else enemy->addNew();
             }
         }
@@ -142,20 +157,22 @@ void GameEnv::refresh(){
 }
 void GameEnv::gameExecution(int r){
     ready = false;
+    startBg = new QGraphicsPixmapItem();
+    startBg->setPixmap(QPixmap(":/images/StartScreen.png"));
 
     rodada = r;
-    delete player;
-    delete enemy;
+
     player = new Snake("Player");
     inimigoAgent = tipo.at(rodada%3);
     enemy = new Snake(inimigoAgent);
     refresh();
     //clean();
-    delete musicBg;
+
     musicBg = new QMediaPlayer(this);
     musicBg->setMedia(QUrl("qrc:/Game"+inimigoAgent+".mp3"));
     musicBg->play();
     gameExecution();
+    scene->addItem(startBg);
 }
 void GameEnv::gameExecution()
 {

@@ -21,5 +21,7 @@
         <file>images/PlayerRight.png</file>
         <file>images/PlayerUp.png</file>
         <file>images/GameBackground.png</file>
+        <file>images/sounds.qrc</file>
+        <file>images/StartScreen.png</file>
     </qresource>
 </RCC>
