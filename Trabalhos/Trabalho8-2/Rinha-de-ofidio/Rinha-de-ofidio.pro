@@ -11,15 +11,18 @@ CONFIG += c++11
 
 SOURCES += \
     about.cpp \
+    gameover.cpp \
     main.cpp \
     menu.cpp
 
 HEADERS += \
     about.hpp \
+    gameover.hpp \
     menu.hpp
 
 FORMS += \
     about.ui \
+    gameover.ui \
     menu.ui
 
 # Default rules for deployment.

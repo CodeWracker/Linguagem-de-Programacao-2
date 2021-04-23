@@ -2,6 +2,7 @@
 #define MENU_H
 
 #include "about.hpp"
+#include "gameover.hpp"
 #include <QMainWindow>
 #include <QMovie>
 #include <QMediaPlayer>

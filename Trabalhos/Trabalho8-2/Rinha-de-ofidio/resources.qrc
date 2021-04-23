@@ -8,9 +8,13 @@
         <file>StartButtonClicked.png</file>
         <file>About.gif</file>
         <file>MenuBackground.gif</file>
+        <file>GameOver.gif</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>363_full_powershot_0163_preview.mp3</file>
         <file>mixkit-quick-lock-sound-2854.wav</file>
+    </qresource>
+    <qresource prefix="/font">
+        <file>8-bitArcade_In.ttf</file>
     </qresource>
 </RCC>
