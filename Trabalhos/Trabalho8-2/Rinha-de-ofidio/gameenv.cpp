@@ -57,7 +57,7 @@ GameEnv::GameEnv(QWidget *parent)
     state.food.push_back(new Food());
     connect(timer, &QTimer::timeout, this, std::bind(&GameEnv::movePlayer,this,""));
     connect(timer, &QTimer::timeout, this, std::bind(&GameEnv::newGame,this,""));
-    //connect(timer, &QTimer::timeout, this, std::bind(&GameEnv::agent,this,state,inimigoA));
+    connect(timer, &QTimer::timeout, this, std::bind(&GameEnv::agent,this,state,inimigoAgent));
 }
 void GameEnv::newGame(string a){
     player->ready = ready;
@@ -68,19 +68,20 @@ void GameEnv::newGame(string a){
         cout << "Novo Jogo"<<endl;
         /*delete player;
         delete enemy;
-        player = new Snake("player");
-        enemy = new Snake(tipo.at(r%4));
-        refresh();
-        player->myBody.at(0).first->setFlag(QGraphicsItem::ItemIsFocusable);
-        player->myBody.at(0).first->setFocus();
-        inimigoA = tipo.at(rodada%3);
-        rodada++;*/
+        delete state.food.at(0);
+        delete state.food.at(1);
+        player = new Snake("Player");
+        enemy = new Snake(tipo.at(0));
+        inimigoAgent = tipo.at(0);
+        rodada++;
         ready = false;
+        return;*/
     }
     if(!player->isVivo) {
         ready = false;
         timer->stop();
         hide();
+        return;
     }
     QList<QGraphicsItem *> colliding_item_player = player->myBody.at(0)->collidingItems();
     QList<QGraphicsItem *> colliding_item_enemy = enemy->myBody.at(0)->collidingItems();
@@ -91,6 +92,18 @@ void GameEnv::newGame(string a){
              Food* foo = state.food.at(j);
              if(colliding_item_player[i] == foo){
                  player->addNew();
+                 delete state.food.at(j);
+                 state.food.at(j) = new Food();
+
+             }
+         }
+    }
+    for(int i = 0, n = colliding_item_enemy.size(); i < n; i++){
+         for(size_t j = 0; j<state.food.size();j++)
+         {
+             Food* foo = state.food.at(j);
+             if(colliding_item_enemy[i] == foo){
+                 enemy->addNew();
                  delete state.food.at(j);
                  state.food.at(j) = new Food();
 
@@ -135,7 +148,8 @@ void GameEnv::gameExecution(int r){
     delete player;
     delete enemy;
     player = new Snake("Player");
-    enemy = new Snake(tipo.at(0));
+    inimigoAgent = tipo.at(0);
+    enemy = new Snake(inimigoAgent);
     refresh();
     //clean();
     gameExecution();

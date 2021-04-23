@@ -16,6 +16,6 @@ Food::Food(QGraphicsPixmapItem *parent) : QGraphicsPixmapItem(parent)
                         )
                     )
                 );
-    setPos(floor(32 * (rand()%20)) +96, 96+floor(32 * (rand()%20)));
+    setPos(floor(32 * (rand()%10)) +32*5, 32*5+floor(32 * (rand()%10)));
 
 }

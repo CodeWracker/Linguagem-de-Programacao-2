@@ -28,7 +28,7 @@ Snake::Snake(QString t)
     QString image;
 
     p->setPixmap(QPixmap("://images/"+tipo+"Left.png"));
-    p->setPos(32*4+floor(32 * (rand() % 20)), 32*4+floor(32 * (rand() % 20)));
+    p->setPos(32*4+floor(32 * (rand() % 12)), 32*4+floor(32 * (rand() % 12)));
     myBody.emplace_back(p);
 
     /*
@@ -48,8 +48,8 @@ void Snake::move(string decisao)
 
     for (BodyPart *part : myBody)
     {
-        cout << part->pos().x() << ";" << part->pos().y() << "(" << part->lastAction << ")"
-             << " - ";
+        //cout << part->pos().x() << ";" << part->pos().y() << "(" << part->lastAction << ")"
+            // << " - ";
     }
     cout << endl;
     for (size_t i = myBody.size() - 1; i > 0; i--)

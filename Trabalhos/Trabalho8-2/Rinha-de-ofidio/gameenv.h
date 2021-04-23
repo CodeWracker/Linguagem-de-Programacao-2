@@ -5,7 +5,7 @@
 #include <QGraphicsView>
 #include <QWidget>
 #include <QGraphicsScene>
-
+#include <QString>
 #include <iostream>
 using namespace std;
 
@@ -31,7 +31,7 @@ public:
      Snake *enemy;
      Estado state;
      vector<QString> tipo;
-     string inimigoA;
+     QString inimigoAgent;
      int rodada;
      QTimer *timer;
      bool ready;
@@ -51,21 +51,39 @@ public :
     void movePlayer(string a){
         player->move();
     }
-     void agent(Estado estado,string inimigo){
+     void agent(Estado estado,QString inimigo){
+         cout << "AAA"<<endl;
+         cout << inimigoAgent.toStdString()<<endl;
          if(ready){
-             if(inimigo == "Nomal"){
-                 agentNormal(estado);
+
+             if(inimigoAgent == "Normal"){
+                 agentNormal(state);
              }else{
-                 agentBoss(estado);
+                 agentBoss(state);
              }
          }
      }
      void agentNormal( Estado estado){
-         //cout <<"Enemy"<<endl;
-         enemy->move("Up");
+
+         if(estado.food.at(0)->y() > enemy->myBody.at(0)->y()){
+             enemy->move("Down");
+             return;
+         }else{
+             if(estado.food.at(0)->y() < enemy->myBody.at(0)->y()){
+                enemy->move("Up");
+                return;
+             }
+             else{
+                 if(estado.food.at(0)->x() > enemy->myBody.at(0)->x()){
+                    enemy->move("Right");
+                    return;
+                 }
+             }
+         }
+         enemy->move("Left");
      }
      void agentBoss( Estado estado){
-         //cout <<"Enemy"<<endl;
+         cout <<"Enemy"<<endl;
          enemy->move("Up");
      }
 
