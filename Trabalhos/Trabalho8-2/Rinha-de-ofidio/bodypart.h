@@ -10,13 +10,14 @@
 
 using namespace std;
 
-
-class BodyPart: public QObject, public QGraphicsPixmapItem{
-   Q_OBJECT
+class BodyPart : public QObject, public QGraphicsPixmapItem
+{
+    Q_OBJECT
 public:
     BodyPart(QGraphicsPixmapItem *parent = 0);
     string lastAction;
-    ~BodyPart(){
+    ~BodyPart()
+    {
         prepareGeometryChange();
     }
     bool move(string decisao);

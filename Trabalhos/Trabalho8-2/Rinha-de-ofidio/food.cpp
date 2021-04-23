@@ -5,17 +5,11 @@
 Food::Food(QGraphicsPixmapItem *parent) : QGraphicsPixmapItem(parent)
 {
     //setRect(0,0,32,32);
-    vector<QString> images = {"://images/Cereja.png","://images/Cookie.png","://images/FrutaVerde.png","://images/FrutaVermelha.png","://images/FrutaAmarela.png"};
+    vector<QString> images = {"://images/Cereja.png", "://images/Cookie.png", "://images/FrutaVerde.png", "://images/FrutaVermelha.png", "://images/FrutaAmarela.png"};
     setPixmap(
-                QPixmap(
-                    images.at(
-                        floor(
-                            rand()%(images.size()
-                                    )
-                            )
-                        )
-                    )
-                );
-    setPos(floor(32 * (rand()%10)) +32*5, 32*5+floor(32 * (rand()%10)));
-
+        QPixmap(
+            images.at(
+                floor(
+                    rand() % (images.size())))));
+    setPos(floor(32 * (rand() % 10)) + 32 * 5, 32 * 5 + floor(32 * (rand() % 10)));
 }

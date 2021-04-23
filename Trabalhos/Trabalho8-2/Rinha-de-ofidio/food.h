@@ -10,13 +10,13 @@
 
 using namespace std;
 
-class Food: public QObject, public QGraphicsPixmapItem
+class Food : public QObject, public QGraphicsPixmapItem
 {
 public:
     Food(QGraphicsPixmapItem *parent = 0);
-    ~Food(){
-        cout << "Comidaaa"<<endl;
-
+    ~Food()
+    {
+        cout << "Comidaaa" << endl;
     };
 };
 
