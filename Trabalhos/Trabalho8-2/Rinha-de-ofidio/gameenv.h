@@ -30,7 +30,7 @@ public:
      Snake *player;
      Snake *enemy;
      Estado state;
-     vector<string> tipo;
+     vector<QString> tipo;
      string inimigoA;
      int rodada;
      QTimer *timer;

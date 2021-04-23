@@ -12,89 +12,82 @@ using namespace std;
 //#include "enemy.h"
 
 #include "food.h"
-Snake::Snake(){{}}
-Snake::Snake(string t)
+Snake::Snake()
+{
+    {
+    }
+}
+Snake::Snake(QString t)
 {
     tipo = t;
     //
     isVivo = true;
     ready = false;
-    BodyPart * p = new BodyPart();
+    BodyPart *p = new BodyPart();
     p->lastAction = "Left";
     QString image;
-    if(tipo == "normal")
-        image = "://images/NormalLeft.png";
-    if(tipo == "boss")
-        image = "://images/BossLeft.png";
-    else
-        image = "://images/PlayerLeft.png";
-     p->setPixmap(QPixmap( image  ) );
-     p->setPos(floor(32 * (rand()%20)) , floor(32 * (rand()%20)));
-     myBody.push_back(p);
 
-
+    p->setPixmap(QPixmap("://images/"+tipo+"Left.png"));
+    p->setPos(32*4+floor(32 * (rand() % 20)), 32*4+floor(32 * (rand() % 20)));
+    myBody.emplace_back(p);
 
     /*
     bulletsound = new QMediaPlayer();
     bulletsound->setMedia(QUrl("qrc:/sounds/Laser.mp3"));*/
 }
-void Snake::die(){
-    cout << "Morri"<<endl;
+void Snake::die()
+{
+    cout << "Morri" << endl;
     isVivo = false;
 }
 void Snake::move(string decisao)
 {
-    if(!ready) return;
+    if (!ready)
+        return;
     vector<string> ant;
-    isVivo = myBody.at(0)->move(decisao);
-    for (BodyPart* part: myBody){
-        cout << part->pos().x() << ";" <<part->pos().y()<<"("<<part->lastAction<<")" << " - ";
+
+    for (BodyPart *part : myBody)
+    {
+        cout << part->pos().x() << ";" << part->pos().y() << "(" << part->lastAction << ")"
+             << " - ";
     }
     cout << endl;
-    for (size_t i = myBody.size()-1; i>0;i--){
-          myBody.at(i)->setPos(myBody.at(i-1)->pos());
-
-        }
+    for (size_t i = myBody.size() - 1; i > 0; i--)
+    {
+        myBody.at(i)->setPos(myBody.at(i - 1)->pos());
+    }
     myBody.at(0)->lastAction = decisao;
-
+    isVivo = myBody.at(0)->move(decisao);
+    myBody.at(0)->setPixmap(QPixmap("://images/"+tipo+QString::fromStdString(decisao)+".png"));
     QList<QGraphicsItem *> colliding_item = myBody.at(0)->collidingItems();
-    for(int i = 0, n = colliding_item.size(); i < n; i++){
-        if(typeid(*(colliding_item[i])) == typeid(BodyPart)){
+    for (int i = 0, n = colliding_item.size(); i < n; i++)
+    {
+        if (typeid(*(colliding_item[i])) == typeid(BodyPart))
+        {
             bool achou = true;
-            for (BodyPart* part: myBody){
-                if(part == colliding_item[i]){
+            for (BodyPart *part : myBody)
+            {
+                if (part == colliding_item[i])
+                {
                     achou = false;
                 }
             }
-            if(achou)
+            if (achou)
                 die();
-
-            }
-
         }
-
-
-
+    }
 }
-void Snake::addNew(){
-    string lastA = myBody.at(myBody.size()-1)->lastAction;
-    QPointF lastP = myBody.at(myBody.size()-1)->pos();
-    BodyPart* p = new BodyPart();
-   QString image;
-   if(tipo == "normal")
-       image = "://images/NormalBody.png";
-   if(tipo == "boss")
-       image = "://images/BossBody.png";
-   else
-       image = "://images/PlayerBody.png";
-    p->setPixmap(QPixmap( image  ) );
+void Snake::addNew()
+{
+    string lastA = myBody.at(myBody.size() - 1)->lastAction;
+    QPointF lastP = myBody.at(myBody.size() - 1)->pos();
+    BodyPart *p = new BodyPart();
+
+    p->setPixmap(QPixmap("://images/"+tipo+"Body.png"));
     //p->setRect(0,0,32,32);
     p->setPos(lastP);
     p->lastAction = lastA;
     p->setFlag(QGraphicsItem::ItemIsFocusable);
     p->setFocus();
-    myBody.push_back(p);
-
-
+    myBody.emplace_back(p);
 }
-

@@ -14,7 +14,7 @@ void GameEnv::clean(){
     //if(scene)
      scene = new QGraphicsScene();
      // fixar o tamanho em 800x600, que é infinito por definição
-     scene->setSceneRect(0, 0, 804, 804);
+     scene->setSceneRect(0, 0, 704, 704);
      setScene(scene);
      setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
      setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -52,7 +52,7 @@ GameEnv::GameEnv(QWidget *parent)
     player = new Snake();
     enemy = new Snake();
     rodada = 0;
-    tipo = { "nomal", "nomal", "nomal", "boss" };
+    tipo = { "Normal", "Normal", "Normal", "Boss" };
     state.food.push_back(new Food());
     state.food.push_back(new Food());
     connect(timer, &QTimer::timeout, this, std::bind(&GameEnv::movePlayer,this,""));
@@ -134,7 +134,7 @@ void GameEnv::gameExecution(int r){
     rodada = r;
     delete player;
     delete enemy;
-    player = new Snake("player");
+    player = new Snake("Player");
     enemy = new Snake(tipo.at(0));
     refresh();
     //clean();

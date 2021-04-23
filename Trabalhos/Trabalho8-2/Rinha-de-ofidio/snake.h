@@ -13,7 +13,7 @@ class Snake: public QObject
 Q_OBJECT
 private:
     QMediaPlayer *bulletsound;
-    string tipo;
+    QString tipo;
 
 public:
     vector<BodyPart* > myBody;
@@ -24,7 +24,7 @@ public:
     }
     bool isVivo;
     Snake();
-    Snake(string t);
+    Snake(QString t);
 
     void move(string decisao);
     void die();
