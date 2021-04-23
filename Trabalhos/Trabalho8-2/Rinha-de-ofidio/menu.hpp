@@ -4,6 +4,7 @@
 #include "about.hpp"
 #include <QMainWindow>
 #include <QMovie>
+#include <QMediaPlayer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Menu; }

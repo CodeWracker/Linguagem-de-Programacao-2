@@ -38,7 +38,7 @@ public:
         Menu->resize(704, 732);
         Menu->setMinimumSize(QSize(704, 732));
         Menu->setMaximumSize(QSize(704, 732));
-        Menu->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0);"));
+        Menu->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(Menu);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         BackgroundLabel = new QLabel(centralwidget);

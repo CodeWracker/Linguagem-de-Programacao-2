@@ -6,6 +6,7 @@ About::About(QWidget *parent) :
     ui(new Ui::About)
 {
     ui->setupUi(this);
+    setWindowTitle(tr("About"));
     QMovie *movie = new QMovie(":/images/About.gif");
     ui->AboutLabel->setMovie(movie);
     movie->start();
