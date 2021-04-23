@@ -14,7 +14,10 @@ class Food: public QObject, public QGraphicsPixmapItem
 {
 public:
     Food(QGraphicsPixmapItem *parent = 0);
-    ~Food(){};
+    ~Food(){
+        cout << "Comidaaa"<<endl;
+
+    };
 };
 
 #endif // FOOD_H

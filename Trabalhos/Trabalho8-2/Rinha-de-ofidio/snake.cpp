@@ -14,8 +14,7 @@ using namespace std;
 #include "food.h"
 Snake::Snake()
 {
-    {
-    }
+
 }
 Snake::Snake(QString t)
 {
@@ -40,10 +39,18 @@ void Snake::die()
     cout << "Morri" << endl;
     isVivo = false;
 }
+bool Snake::isOpposite(string d){
+    if(d == "Up" && myBody.at(0)->lastAction == "Down") return true;
+    if(d == "Down" && myBody.at(0)->lastAction == "Up") return true;
+    if(d == "Left" && myBody.at(0)->lastAction == "Right") return true;
+    if(d == "Right" && myBody.at(0)->lastAction == "Left") return true;
+    return false;
+}
 void Snake::move(string decisao)
 {
-    if (!ready)
+    if (!ready || isOpposite(decisao))
         return;
+
     vector<string> ant;
 
     for (BodyPart *part : myBody)

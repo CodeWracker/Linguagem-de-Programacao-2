@@ -6,6 +6,7 @@
 #include <QWidget>
 #include <QGraphicsScene>
 #include <QString>
+#include <QMediaPlayer>
 #include <iostream>
 using namespace std;
 
@@ -19,6 +20,8 @@ public:
 
 class GameEnv: public QGraphicsView
 {
+private:
+    QMediaPlayer * musicBg ;
 public:
     GameEnv(QWidget *parent = 0);
      QGraphicsScene *scene;
@@ -38,8 +41,14 @@ public:
      void refresh();
      void keyPressEvent(QKeyEvent *event);
     void mousePressEvent(QMouseEvent *event){
-        if(ready) player->addNew();
-        ready = true;
+        //if(ready) player->addNew();
+        if(!ready){
+            QMediaPlayer * music = new QMediaPlayer(this);
+             music->setMedia(QUrl("qrc:/GameStart.wav"));
+             music->play();
+
+            ready = true;
+        }
 
     }
      /*int state = {
@@ -49,10 +58,10 @@ public:
             }*/
 public :
     void movePlayer(string a){
+
         player->move();
     }
      void agent(Estado estado,QString inimigo){
-         cout << "AAA"<<endl;
          cout << inimigoAgent.toStdString()<<endl;
          if(ready){
 

@@ -30,6 +30,7 @@ public:
     void die();
     bool ready;
     void addNew();
+    bool isOpposite(string d);
     ~Snake(){
         for(size_t i =0;i <myBody.size();i++){
             delete myBody.at(i);}

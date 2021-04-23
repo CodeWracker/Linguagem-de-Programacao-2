@@ -5,6 +5,7 @@ debug/main.o
 debug/menu.o
 debug/snake.o
 debug/qrc_images.o
+debug/qrc_sounds.o
 debug/moc_bodypart.o
 debug/moc_menu.o
 debug/moc_snake.o
