@@ -94,8 +94,8 @@ void GameEnv::newGame()
                     music->play();
                     player->addNew();
                     foodCount++;
-                    int boss = floor(rodada/3);
-                    cout << "Rodadas: "<<rodada<<"; Normal: "<< floor(rodada - boss)<< "; Boss: "<<boss<<"; Food: "<< foodCount<< endl;
+                    int boss = floor(rodada / 3);
+                    //cout << "Rodadas: "<<rodada<<"; Normal: "<< floor(rodada - boss)<< "; Boss: "<<boss<<"; Food: "<< foodCount<< endl;
                 }
                 else
                     enemy->addNew();
@@ -107,7 +107,7 @@ void GameEnv::newGame()
         delete player;
         delete enemy;
         delete musicBg;
-        cout << "Novo Jogo" << endl;
+        //cout << "Novo Jogo" << endl;
         QMediaPlayer *music = new QMediaPlayer(this);
         music->setMedia(QUrl("qrc:/GameWin.wav"));
         music->play();
@@ -130,17 +130,16 @@ void GameEnv::newGame()
             scene->items().at(i)->setEnabled(false);
         }
         delete musicBg;
-        int boss = floor(rodada/3);
-        GameOver gameover(nullptr,QString::number(rodada), QString::number(rodada-boss), QString::number(boss), QString::number(foodCount));
+        int boss = floor(rodada / 3);
+        GameOver gameover(nullptr, QString::number(rodada), QString::number(rodada - boss), QString::number(boss), QString::number(foodCount));
         gameover.exec();
 
         hide();
         foodCount = 0;
-        if(menuMusic)menuMusic->play();
+        if (menuMusic)
+            menuMusic->play();
         return;
     }
-
-
 
     refresh();
 }
@@ -182,7 +181,8 @@ void GameEnv::refresh()
             scene->addItem(part);
     }
 }
-void GameEnv::gameExecution(int r, QMediaPlayer* msc){
+void GameEnv::gameExecution(int r, QMediaPlayer *msc)
+{
     menuMusic = msc;
     menuMusic->pause();
 
@@ -198,7 +198,7 @@ void GameEnv::gameExecution(int r)
     rodada = r;
 
     player = new Snake("Player");
-    inimigoAgent = tipo.at(rodada%3);
+    inimigoAgent = tipo.at(rodada % 3);
     enemy = new Snake(inimigoAgent);
     refresh();
     //clean();

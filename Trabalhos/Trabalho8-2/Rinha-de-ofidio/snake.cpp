@@ -31,7 +31,7 @@ Snake::Snake(QString t)
 }
 void Snake::die()
 {
-    cout << "Morri" << endl;
+    //cout << "Morri" << endl;
     isVivo = false;
 }
 bool Snake::isOpposite(string d)
@@ -53,7 +53,7 @@ void Snake::move(string decisao)
 
     vector<string> ant;
 
-    cout << endl;
+    //cout << endl;
     for (size_t i = myBody.size() - 1; i > 0; i--)
     {
         myBody.at(i)->setPos(myBody.at(i - 1)->pos());
@@ -66,9 +66,8 @@ void Snake::move(string decisao)
     {
         if (typeid(*(colliding_item[i])) == typeid(BodyPart))
         {
-           die();
+            die();
         }
-
     }
 }
 void Snake::addNew()
