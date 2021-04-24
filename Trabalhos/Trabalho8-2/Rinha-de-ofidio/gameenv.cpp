@@ -12,7 +12,7 @@
 
 GameEnv::GameEnv(QWidget *parent)
 {
-
+    foodCount = 0;
     ready = false;
     timer = new QTimer();
     clean();
@@ -71,6 +71,37 @@ void GameEnv::newGame()
     player->ready = ready;
     enemy->ready = ready;
     refresh();
+    for (size_t j = 0; j < state.food.size(); j++)
+    {
+        QList<QGraphicsItem *> colliding_item = state.food.at(j)->collidingItems();
+        for (int i = 0; i < colliding_item.size(); i++)
+        {
+            if (typeid(*(colliding_item[i])) == typeid(BodyPart))
+            {
+                delete state.food.at(j);
+
+                state.food.at(j) = new Food();
+                bool achou = false;
+                for (BodyPart *part : player->myBody)
+                {
+                    if (part == colliding_item[i])
+                        achou = true;
+                }
+                if (achou)
+                {
+                    QMediaPlayer *music = new QMediaPlayer(this);
+                    music->setMedia(QUrl("qrc:/Eat.wav"));
+                    music->play();
+                    player->addNew();
+                    foodCount++;
+                    int boss = floor(rodada/3);
+                    cout << "Rodadas: "<<rodada<<"; Normal: "<< floor(rodada - boss)<< "; Boss: "<<boss<<"; Food: "<< foodCount<< endl;
+                }
+                else
+                    enemy->addNew();
+            }
+        }
+    }
     if ((player->isVivo && !enemy->isVivo) || player->myBody.size() >= 30)
     {
         delete player;
@@ -101,36 +132,11 @@ void GameEnv::newGame()
 
         delete musicBg;
         hide();
+        foodCount = 0;
         return;
     }
-    for (size_t j = 0; j < state.food.size(); j++)
-    {
-        QList<QGraphicsItem *> colliding_item = state.food.at(j)->collidingItems();
-        for (int i = 0; i < colliding_item.size(); i++)
-        {
-            if (typeid(*(colliding_item[i])) == typeid(BodyPart))
-            {
-                delete state.food.at(j);
 
-                state.food.at(j) = new Food();
-                bool achou = false;
-                for (BodyPart *part : player->myBody)
-                {
-                    if (part == colliding_item[i])
-                        achou = true;
-                }
-                if (achou)
-                {
-                    QMediaPlayer *music = new QMediaPlayer(this);
-                    music->setMedia(QUrl("qrc:/Eat.wav"));
-                    music->play();
-                    player->addNew();
-                }
-                else
-                    enemy->addNew();
-            }
-        }
-    }
+
 
     refresh();
 }
@@ -181,7 +187,7 @@ void GameEnv::gameExecution(int r)
     rodada = r;
 
     player = new Snake("Player");
-    inimigoAgent = tipo.at(rodada % 3);
+    inimigoAgent = tipo.at(rodada%3);
     enemy = new Snake(inimigoAgent);
     refresh();
     //clean();

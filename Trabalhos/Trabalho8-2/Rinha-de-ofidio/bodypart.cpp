@@ -1,3 +1,5 @@
+
+
 #include "bodypart.h"
 #include <math.h>
 BodyPart::BodyPart(QGraphicsPixmapItem *parent) : QGraphicsPixmapItem(parent)

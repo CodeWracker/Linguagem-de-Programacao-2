@@ -66,17 +66,9 @@ void Snake::move(string decisao)
     {
         if (typeid(*(colliding_item[i])) == typeid(BodyPart))
         {
-            bool achou = true;
-            for (BodyPart *part : myBody)
-            {
-                if (part == colliding_item[i])
-                {
-                    achou = false;
-                }
-            }
-            if (achou)
-                die();
+           die();
         }
+
     }
 }
 void Snake::addNew()

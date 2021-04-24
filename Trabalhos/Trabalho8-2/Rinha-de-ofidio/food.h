@@ -16,7 +16,6 @@ public:
     Food(QGraphicsPixmapItem *parent = 0);
     ~Food()
     {
-        cout << "Comidaaa" << endl;
     };
 };
 

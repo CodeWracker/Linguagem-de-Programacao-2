@@ -1,3 +1,4 @@
+release/agentBoss.o
 release/bodypart.o
 release/food.o
 release/gameenv.o

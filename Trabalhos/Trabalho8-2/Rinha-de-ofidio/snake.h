@@ -13,9 +13,9 @@ private:
     QMediaPlayer *bulletsound;
     QString tipo;
     void die();
-    bool isOpposite(string d);
 
 public:
+    bool isOpposite(string d);
     vector<BodyPart *> myBody;
     void reset()
     {

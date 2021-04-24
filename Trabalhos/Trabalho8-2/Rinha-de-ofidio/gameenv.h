@@ -33,6 +33,7 @@ private:
     int rodada;
     QTimer *timer;
     bool ready;
+    int foodCount;
 
 private:
     void newGame();
@@ -44,6 +45,7 @@ private:
     {
         ready = false;
         timer->stop();
+        foodCount = 0;
         delete player;
         delete enemy;
         for (int i = 0; i < scene->items().size(); i++)
@@ -51,6 +53,8 @@ private:
             scene->items().at(i)->setEnabled(false);
         }
         delete musicBg;
+        if(startBg)
+            delete startBg;
         hide();
         return;
     }
@@ -83,7 +87,6 @@ private:
     }
     void agent()
     {
-        cout << inimigoAgent.toStdString() << endl;
         if (ready)
         {
 
@@ -123,11 +126,7 @@ private:
         }
         enemy->move("Left");
     }
-    void agentBoss(Estado estado)
-    {
-        cout << "Enemy" << endl;
-        enemy->move("Up");
-    }
+    void agentBoss(Estado estado);
 };
 
 #endif // GAME_H
