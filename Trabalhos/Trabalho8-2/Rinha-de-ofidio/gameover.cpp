@@ -16,7 +16,7 @@ GameOver::GameOver(QWidget *parent, QString Rounds, QString Normal, QString Boss
 {
     ui->setupUi(this);
     setWindowTitle(tr("Game Over"));
-    QMovie *movie = new QMovie(":/images/GameOver.gif");
+    movie = new QMovie(":/images/GameOver.gif");
     ui->GameOverLabel->setMovie(movie);
     movie->start();
     ui->RoundsLabel->setText(Rounds);
@@ -27,5 +27,6 @@ GameOver::GameOver(QWidget *parent, QString Rounds, QString Normal, QString Boss
 
 GameOver::~GameOver()
 {
+    delete movie;
     delete ui;
 }

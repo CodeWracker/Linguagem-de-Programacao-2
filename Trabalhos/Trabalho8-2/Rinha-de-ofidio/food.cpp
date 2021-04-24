@@ -11,5 +11,5 @@ Food::Food(QGraphicsPixmapItem *parent) : QGraphicsPixmapItem(parent)
             images.at(
                 floor(
                     rand() % (images.size())))));
-    setPos(floor(32 * (rand() % 10)) + 32 * 5, 32 * 5 + floor(32 * (rand() % 10)));
+    setPos(floor(32 * (rand() % 17)) + 32 * 2, 32 * 2 + floor(32 * (rand() % 17)));
 }

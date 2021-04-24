@@ -105,29 +105,34 @@ private:
     }
     void agentNormal(Estado estado)
     {
-
+        string move;
         if (estado.food.at(0)->y() > enemy->myBody.at(0)->y())
         {
-            enemy->move("Down");
-            return;
+            move = "Down";
         }
         else
         {
             if (estado.food.at(0)->y() < enemy->myBody.at(0)->y())
             {
-                enemy->move("Up");
-                return;
+                move = "Up";
             }
             else
             {
                 if (estado.food.at(0)->x() > enemy->myBody.at(0)->x())
                 {
-                    enemy->move("Right");
-                    return;
+                    move = "Right";
+                }
+                else{
+                    move = "Left";
                 }
             }
         }
-        enemy->move("Left");
+        if(enemy->isOpposite(move)){
+            enemy->move(enemy->myBody.at(0)->lastAction);
+        }
+        else{
+            enemy->move(move);
+        }
     }
     void agentBoss(Estado estado);
 };

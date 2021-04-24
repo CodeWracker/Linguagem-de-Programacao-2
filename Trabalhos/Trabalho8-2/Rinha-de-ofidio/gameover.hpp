@@ -18,6 +18,7 @@ public:
     ~GameOver();
 
 private:
+    QMovie *movie;
     Ui::GameOver *ui;
 };
 

@@ -11,20 +11,23 @@ Menu::Menu(QWidget *parent)
     MenuMusic->setMedia(QUrl("qrc:/sounds/363_full_powershot_0163_preview.mp3"));
     MenuMusic->play();
 
-    QMovie *background = new QMovie(":/images/MenuBackground.gif");
+    background = new QMovie(":/images/MenuBackground.gif");
     ui->BackgroundLabel->setMovie(background);
     background->start();
 }
 
 Menu::~Menu()
 {
+    delete background;
+    delete MenuMusic;
+    delete ButtonClick;
     delete ui;
 }
 
 
 void Menu::on_StartButton_clicked()
 {
-    QMediaPlayer * ButtonClick = new QMediaPlayer(this);
+    ButtonClick = new QMediaPlayer(this);
     ButtonClick->setMedia(QUrl("qrc:/sounds/mixkit-quick-lock-sound-2854.wav"));
     ButtonClick->play();
     gameEnv->gameExecution(0, MenuMusic);
@@ -32,7 +35,7 @@ void Menu::on_StartButton_clicked()
 
 void Menu::on_AboutButton_clicked()
 {
-    QMediaPlayer * ButtonClick = new QMediaPlayer(this);
+    ButtonClick = new QMediaPlayer(this);
     ButtonClick->setMedia(QUrl("qrc:/sounds/mixkit-quick-lock-sound-2854.wav"));
     ButtonClick->play();
     About autores;
@@ -44,7 +47,7 @@ void Menu::on_AboutButton_clicked()
 
 void Menu::on_QuitButton_clicked()
 {
-    QMediaPlayer * ButtonClick = new QMediaPlayer(this);
+    ButtonClick = new QMediaPlayer(this);
     ButtonClick->setMedia(QUrl("qrc:/sounds/mixkit-quick-lock-sound-2854.wav"));
     ButtonClick->play();
     Menu::close();

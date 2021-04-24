@@ -27,7 +27,9 @@ private slots:
     void on_QuitButton_clicked();
 
 private:
+    QMovie *background;
     QMediaPlayer * MenuMusic;
+    QMediaPlayer * ButtonClick;
     Ui::Menu *ui;
     GameEnv* gameEnv;
 };
