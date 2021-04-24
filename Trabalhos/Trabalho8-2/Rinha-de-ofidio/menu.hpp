@@ -6,7 +6,7 @@
 #include <QMainWindow>
 #include <QMovie>
 #include <QMediaPlayer>
-
+#include "gameenv.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class Menu; }
 QT_END_NAMESPACE
@@ -27,6 +27,8 @@ private slots:
     void on_QuitButton_clicked();
 
 private:
+    QMediaPlayer * MenuMusic;
     Ui::Menu *ui;
+    GameEnv* gameEnv;
 };
 #endif // MENU_H

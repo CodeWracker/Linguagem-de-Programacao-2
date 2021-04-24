@@ -11,14 +11,23 @@ CONFIG += c++11
 
 SOURCES += \
     about.cpp \
+    agentBoss.cpp \
+    bodypart.cpp \
+    food.cpp \
+    gameenv.cpp \
     gameover.cpp \
     main.cpp \
-    menu.cpp
+    menu.cpp \
+    snake.cpp
 
 HEADERS += \
     about.hpp \
+    bodypart.h \
+    food.h \
+    gameenv.h \
     gameover.hpp \
-    menu.hpp
+    menu.hpp \
+    snake.h
 
 FORMS += \
     about.ui \
@@ -31,4 +40,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    resources.qrc
+    images.qrc \
+    resources.qrc \
+    sounds/sounds.qrc

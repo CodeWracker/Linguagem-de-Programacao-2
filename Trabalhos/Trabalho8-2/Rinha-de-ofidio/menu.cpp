@@ -6,8 +6,8 @@ Menu::Menu(QWidget *parent)
     , ui(new Ui::Menu)
 {
     ui->setupUi(this);
-
-    QMediaPlayer * MenuMusic = new QMediaPlayer(this);
+    gameEnv = new GameEnv();
+    MenuMusic = new QMediaPlayer(this);
     MenuMusic->setMedia(QUrl("qrc:/sounds/363_full_powershot_0163_preview.mp3"));
     MenuMusic->play();
 
@@ -27,6 +27,7 @@ void Menu::on_StartButton_clicked()
     QMediaPlayer * ButtonClick = new QMediaPlayer(this);
     ButtonClick->setMedia(QUrl("qrc:/sounds/mixkit-quick-lock-sound-2854.wav"));
     ButtonClick->play();
+    gameEnv->gameExecution(0, MenuMusic);
 }
 
 void Menu::on_AboutButton_clicked()
