@@ -17,6 +17,7 @@ public:
     ~About();
 
 private:
+    QMovie *movie;
     Ui::About *ui;
 };
 

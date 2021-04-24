@@ -7,12 +7,13 @@ About::About(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle(tr("About"));
-    QMovie *movie = new QMovie(":/images/About.gif");
+    movie = new QMovie(":/images/About.gif");
     ui->AboutLabel->setMovie(movie);
     movie->start();
 }
 
 About::~About()
 {
+    delete movie;
     delete ui;
 }
