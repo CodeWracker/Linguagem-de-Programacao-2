@@ -95,7 +95,6 @@ void GameEnv::newGame()
                     player->addNew();
                     foodCount++;
                     int boss = floor(rodada / 3);
-                    //cout << "Rodadas: "<<rodada<<"; Normal: "<< floor(rodada - boss)<< "; Boss: "<<boss<<"; Food: "<< foodCount<< endl;
                 }
                 else
                     enemy->addNew();

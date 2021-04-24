@@ -18,7 +18,6 @@ Snake::Snake()
 Snake::Snake(QString t)
 {
     tipo = t;
-    //
     isVivo = true;
     ready = false;
     BodyPart *p = new BodyPart();
@@ -31,7 +30,6 @@ Snake::Snake(QString t)
 }
 void Snake::die()
 {
-    //cout << "Morri" << endl;
     isVivo = false;
 }
 bool Snake::isOpposite(string d)

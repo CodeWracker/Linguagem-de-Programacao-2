@@ -697,6 +697,28 @@ debug/moc_menu.cpp: ../Rinha-de-ofidio/menu.hpp \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qmetaobject.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtMultimedia/qaudio.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtNetwork/qnetworkconfiguration.h \
+		../Rinha-de-ofidio/gameenv.h \
+		../Rinha-de-ofidio/snake.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qgraphicsitem.h \
+		../Rinha-de-ofidio/bodypart.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QObject \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsItem \
+		../Rinha-de-ofidio/food.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsView \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qgraphicsview.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpainter.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qtextoption.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpen.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qscrollarea.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qframe.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QWidget \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsScene \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QTimer \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qtimer.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qbasictimer.h \
 		debug/moc_predefs.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/bin/moc.exe
 	D:\Qt\Qt5.12.10\5.12.10\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/Rodrigo Ferraz Souza/Documents/Projetos/UFSC/Linguagem-de-Programacao-2/Trabalhos/Trabalho8-2/build-Rinha-de-ofidio-Desktop_Qt_5_12_10_MinGW_64_bit-Debug/debug/moc_predefs.h" -ID:/Qt/Qt5.12.10/5.12.10/mingw73_64/mkspecs/win32-g++ -I"C:/Users/Rodrigo Ferraz Souza/Documents/Projetos/UFSC/Linguagem-de-Programacao-2/Trabalhos/Trabalho8-2/Rinha-de-ofidio" -ID:/Qt/Qt5.12.10/5.12.10/mingw73_64/include -ID:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtMultimedia -ID:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets -ID:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui -ID:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtANGLE -ID:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtNetwork -ID:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore -I. -ID:/Qt/Qt5.12.10/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.12.10/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.12.10/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.12.10/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.12.10/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.12.10/Tools/mingw730_64/x86_64-w64-mingw32/include ..\Rinha-de-ofidio\menu.hpp -o debug\moc_menu.cpp
@@ -965,16 +987,7 @@ debug/about.o: ../Rinha-de-ofidio/about.cpp ../Rinha-de-ofidio/about.hpp \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qjsonobject.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qjsonvalue.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qfactoryinterface.h \
-		ui_about.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QVariant \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QApplication \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qapplication.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qguiapplication.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qinputmethod.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QLabel \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qlabel.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qframe.h
+		ui_about.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\about.o ..\Rinha-de-ofidio\about.cpp
 
 debug/agentBoss.o: ../Rinha-de-ofidio/agentBoss.cpp ../Rinha-de-ofidio/gameenv.h \
@@ -1494,6 +1507,20 @@ debug/gameenv.o: ../Rinha-de-ofidio/gameenv.cpp ../Rinha-de-ofidio/gameenv.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QTimer \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qtimer.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qbasictimer.h \
+		../Rinha-de-ofidio/gameover.hpp \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QDialog \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qdialog.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/QMovie \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qmovie.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qimagereader.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qcoreapplication.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qeventloop.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qimageiohandler.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qplugin.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qpointer.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qjsonobject.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qjsonvalue.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qfactoryinterface.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsTextItem \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtMultimedia/QMediaPlaylist \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtMultimedia/qmediaplaylist.h \
@@ -1620,15 +1647,6 @@ debug/gameover.o: ../Rinha-de-ofidio/gameover.cpp ../Rinha-de-ofidio/gameover.hp
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qjsonvalue.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qfactoryinterface.h \
 		ui_gameover.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QVariant \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QApplication \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qapplication.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qguiapplication.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qinputmethod.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QLabel \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qlabel.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qframe.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/QFontDatabase \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qfontdatabase.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/QFont
@@ -1775,6 +1793,28 @@ debug/main.o: ../Rinha-de-ofidio/main.cpp ../Rinha-de-ofidio/menu.hpp \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qmetaobject.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtMultimedia/qaudio.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtNetwork/qnetworkconfiguration.h \
+		../Rinha-de-ofidio/gameenv.h \
+		../Rinha-de-ofidio/snake.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qgraphicsitem.h \
+		../Rinha-de-ofidio/bodypart.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QObject \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsItem \
+		../Rinha-de-ofidio/food.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsView \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qgraphicsview.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpainter.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qtextoption.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpen.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qscrollarea.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qframe.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QWidget \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsScene \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QTimer \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qtimer.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qbasictimer.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QApplication \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qapplication.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qdesktopwidget.h \
@@ -1926,26 +1966,29 @@ debug/menu.o: ../Rinha-de-ofidio/menu.cpp ../Rinha-de-ofidio/menu.hpp \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qmetaobject.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtMultimedia/qaudio.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtNetwork/qnetworkconfiguration.h \
-		ui_menu.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QApplication \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qapplication.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qdesktopwidget.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qguiapplication.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qinputmethod.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QLabel \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qlabel.h \
+		../Rinha-de-ofidio/gameenv.h \
+		../Rinha-de-ofidio/snake.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsPixmapItem \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qgraphicsitem.h \
+		../Rinha-de-ofidio/bodypart.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QObject \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsItem \
+		../Rinha-de-ofidio/food.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsView \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qgraphicsview.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpainter.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qtextoption.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtGui/qpen.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qscrollarea.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
 		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qframe.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QMenuBar \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qmenubar.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qmenu.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qaction.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qactiongroup.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QPushButton \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qpushbutton.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QStatusBar \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qstatusbar.h \
-		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QWidget
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QWidget \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtWidgets/QGraphicsScene \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/QTimer \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qtimer.h \
+		D:/Qt/Qt5.12.10/5.12.10/mingw73_64/include/QtCore/qbasictimer.h \
+		ui_menu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\menu.o ..\Rinha-de-ofidio\menu.cpp
 
 debug/snake.o: ../Rinha-de-ofidio/snake.cpp ../Rinha-de-ofidio/snake.h \
